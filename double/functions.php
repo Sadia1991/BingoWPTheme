@@ -1,6 +1,5 @@
 <?php
-
-  /*
+/*
    * double theme setup
    */
 
@@ -113,7 +112,62 @@ add_action('wp_body_open', 'double_preloader');
 
 require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 
+function double_widget_init(){
 
+    register_sidebar(
+        array(
+            'name' 		=> 'Footer 1',
+            'id' 		=> 'sidebar-1',
+            'description'	=> 'Add one widget, as it will be the 1st widget in the footer.',
+            'before_widget' => '<div class="bg-one">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>'
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' 		=> 'Footer 2',
+            'id' 		=> 'sidebar-2',
+            'description'	=> 'Add one widget, as it will be the 2nd widget in the footer.',
+            'before_widget' => '<div class="bg-one">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>'
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' 		=> 'Footer 3',
+            'id' 		=> 'sidebar-3',
+            'description'	=> 'Add one widget, as it will be the 3rd widget in the footer.',
+            'before_widget' => '<div class="bg-one">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>'
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' 		=> 'Footer 4',
+            'id' 		=> 'sidebar-4',
+            'description'	=> 'Add one widget, as it will be the 4th widget in the footer.',
+            'before_widget' => '<div class="bg-one">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>'
+        )
+    );
+
+
+
+}
+
+
+add_action( 'widgets_init', 'double_widget_init' );
 ?>
 
 

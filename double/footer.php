@@ -3,40 +3,30 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
-          <h3>about</h3>
-          <p>Integer posuere erat a ante venenati dapibus posuere velit aliquet. Fusce dapibus, tellus cursus commodo, tortor mauris sed posuere.</p>
+            <?php if ( is_active_sidebar( 'sidebar-1' ) ) :  ?>
+            <?php dynamic_sidebar('sidebar-1'); ?>
+            <?php endif; ?>
         </div>
         <!-- End of .col-sm-3 -->
 
         <div class="col-sm-3 col-md-3 col-lg-3">
-          <ul>
-            <li><h3>Our Services</h3></li>
-            <li><a href="#">Graphic Design</a></li>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-          </ul>
+            <?php if ( is_active_sidebar( 'sidebar-2' ) ) :  ?>
+                <?php dynamic_sidebar('sidebar-2'); ?>
+            <?php endif; ?>
         </div>
         <!-- End of .col-sm-3 -->
 
         <div class="col-sm-3 col-md-3 col-lg-3">
-          <ul>
-            <li><h3>Quick Links</h3></li>
-            <li><a href="#">Partners</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">FAQ’s</a></li>
-            <li><a href="#">Badges</a></li>
-          </ul>
+            <?php if ( is_active_sidebar( 'sidebar-3' ) ) :  ?>
+                <?php dynamic_sidebar('sidebar-3'); ?>
+            <?php endif; ?>
         </div>
         <!-- End of .col-sm-3 -->
 
         <div class="col-sm-3 col-md-3 col-lg-3">
-          <ul>
-            <li><h3>Connect with us Socially</h3></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Youtube</a></li>
-            <li><a href="#">Pinterest</a></li>
-          </ul>
+            <?php if ( is_active_sidebar( 'sidebar-4' ) ) :  ?>
+                <?php dynamic_sidebar('sidebar-4'); ?>
+            <?php endif; ?>
         </div>
         <!-- End of .col-sm-3 -->
 
@@ -44,20 +34,11 @@
     </div> <!-- end container -->
   </div>
   <div class="footer-bottom">
-    <h5>Copyright 2016. All rights reserved.</h5>
-    <h6>Design and Developed by <a href="">Themefisher</a></h6>
-		<h6>Distributed by <a href="https://themewagon.com/">Themewagon</a></h6>
+    <h5>Copyright &copy;<?php echo date('Y');?> All rights reserved.</h5>
+    <h6>Design and Developed by <?php bloginfo('name');?></h6>
+		<h6>Distributed by <a href="https://softinnovationbd.com/">SoftinnovationBD</a></h6>
   </div>
 </footer> <!-- end footer -->
-
-
-    <!-- end Footer Area
-    ========================================== -->
-    
-
-    
-    
-
-  </body>
+</body>
   <?php wp_footer(); ?>
-  </html>
+</html>
