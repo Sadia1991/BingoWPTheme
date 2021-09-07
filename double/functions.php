@@ -17,7 +17,7 @@ if (! function_exists('double_setup')){
 
         add_theme_support( 'title-tag' );
 
-        add_theme_support( 'post-thumbnails', array('slides') );
+        add_theme_support( 'post-thumbnails', array('slides', 'testimonial') );
 
         load_theme_textdomain( 'double', get_template_directory_uri() . '/languages' );
 
@@ -201,6 +201,21 @@ function slider_custom_posts(){
             ),
             'public' => true,
             'supports' => array('title','editor','custom-fields'),
+
+        )
+    );
+
+
+    //testimonial custom post
+    register_post_type( 'testimonial',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Testimonial' ),
+                'singular_name' => __( 'Testimonial' ),
+            ),
+            'public' => true,
+            'supports' => array('thumbnail','custom-fields','page-attributes'),
 
         )
     );
