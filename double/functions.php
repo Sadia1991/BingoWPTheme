@@ -176,6 +176,8 @@ add_action( 'widgets_init', 'double_widget_init' );
 
 function slider_custom_posts(){
 
+    //slide custom post
+
     register_post_type( 'slides',
         // CPT Options
         array(
@@ -185,6 +187,20 @@ function slider_custom_posts(){
             ),
             'public' => true,
             'supports' => array('title','editor','thumbnail','custom-fields'),
+
+        )
+    );
+
+    //offer custom post
+    register_post_type( 'offers',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Offers' ),
+                'singular_name' => __( 'Offers' ),
+            ),
+            'public' => true,
+            'supports' => array('title','editor','custom-fields'),
 
         )
     );

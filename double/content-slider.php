@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1"><?php the_title();?></h1>
-                    <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5"><?php the_content();?></p>
+                    <?php the_content();?>
                     <?php if($btn_text){ ?>
                     <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn btn-main" href="<?php echo $btn_link ;?>"><?php echo $btn_text ;?></a>
                     <?php
