@@ -17,6 +17,10 @@ if (! function_exists('double_setup')){
 
         add_theme_support( 'title-tag' );
 
+        add_theme_support( 'post-thumbnails', array('slides') );
+
+        load_theme_textdomain( 'double', get_template_directory_uri() . '/languages' );
+
 
     /*
      * Add support for core custom logo.
@@ -168,6 +172,27 @@ function double_widget_init(){
 
 
 add_action( 'widgets_init', 'double_widget_init' );
+
+
+function slider_custom_posts(){
+
+    register_post_type( 'slides',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Slider' ),
+                'singular_name' => __( 'Slider' ),
+            ),
+            'public' => true,
+            'supports' => array('title','editor','thumbnail','custom-fields'),
+
+        )
+    );
+
+
+}
+
+add_action('init','slider_custom_posts');
 ?>
 
 
