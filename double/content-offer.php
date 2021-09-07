@@ -53,7 +53,10 @@ Start About Section
                             <?php the_content();?>
                             </div>
                     </div><!-- END COL -->
-                    <?php } ?>
+                    <?php
+                    }
+                    wp_reset_postdata();
+                    ?>
                 </div>
             </div>
         </div> <!-- End row -->

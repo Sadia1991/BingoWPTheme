@@ -52,7 +52,10 @@
                         </div>
                         <!-- /client photo -->
                     </div>
-                    <?php } ?>
+                    <?php
+                    }
+                    wp_reset_postdata();
+                    ?>
                     <!-- /testimonial single -->
 
                 </div>

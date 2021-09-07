@@ -38,6 +38,7 @@
                     <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn btn-main" href="<?php echo $btn_link ;?>"><?php echo $btn_text ;?></a>
                     <?php
                     }
+                    wp_reset_postdata();
                     ?>
                       </div>
             </div>
