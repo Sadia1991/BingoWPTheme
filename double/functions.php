@@ -17,7 +17,7 @@ if (! function_exists('double_setup')){
 
         add_theme_support( 'title-tag' );
 
-        add_theme_support( 'post-thumbnails', array('slides', 'testimonial') );
+        add_theme_support( 'post-thumbnails', array('slides', 'testimonial','post') );
 
         load_theme_textdomain( 'double', get_template_directory_uri() . '/languages' );
 
@@ -117,6 +117,18 @@ add_action('wp_body_open', 'double_preloader');
 require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 
 function double_widget_init(){
+
+    register_sidebar(
+        array(
+            'name' 		=> 'Main Sidebar',
+            'id' 		=> 'mainbar-1',
+            'description'	=> 'Add one widget, as it will be the 1st widget in the footer.',
+            'before_widget' => '<div class="widget-categories-list">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>'
+        )
+    );
 
     register_sidebar(
         array(
@@ -224,6 +236,37 @@ function slider_custom_posts(){
 }
 
 add_action('init','slider_custom_posts');
+
+
+
+function double_comment_field($field){
+
+    $comment = $field['comment'];
+    $author = $field['author'];
+    $email = $field['email'];
+    $url = $field['url'];
+    $cookies = $field['cookies'];
+
+
+    unset($field['comment']);
+    unset($field['author']);
+    unset($field['email']);
+    unset($field['url']);
+    unset($field['cookies']);
+
+
+    $field['author'] = $author;
+    $field['email'] = $email;
+    $field['url'] = $url;
+    $field['comment'] = $comment;
+    $field['cookies'] = $cookies;
+
+    return $field;
+
+
+}
+
+add_filter( 'comment_form_fields', 'double_comment_field' );
 ?>
 
 
