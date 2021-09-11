@@ -30,82 +30,41 @@ get_header();
 			<!-- /section title -->
 
 			<!-- Single Service Item -->
-			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-				<div class="service-block p-4 color-bg text-center">
-					<div class="service-icon text-center">
-						<i class="tf-ion-ios-copy-outline"></i>
-					</div>
-					<h3>WordPress Theme</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus. Nullam
-						iaculis arcu at mauris dapibus consectetur.</p>
-				</div>
-			</div>
-			<!-- End Single Service Item -->
+            <?php
 
-			<!-- Single Service Item -->
+            $args = array(
+                'post_type' => 'services',
+                'posts_per_page' => 6,
+            );
+
+            $query = new WP_Query($args);
+            while ($query -> have_posts()){
+
+            $query -> the_post();
+
+            $service_icon = get_field('service_icon');
+
+
+            ?>
 			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+
 				<div class="service-block p-4 text-center">
+
 					<div class="service-icon text-center">
-						<i class="tf-ion-ios-alarm-outline"></i>
+						<i class="<?php echo $service_icon;?>"></i>
 					</div>
-					<h3>Responsive Design</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus. Nullam
-						iaculis arcu at mauris dapibus consectetur.</p>
+					<h3><?php the_title();?></h3>
+                    <?php the_content();?>
 				</div>
+
 			</div>
+                <?php
+            }
+            wp_reset_postdata();
+            ?>
 			<!-- End Single Service Item -->
 
-			<!-- Single Service Item -->
-			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-				<div class="service-block p-4 color-bg text-center">
-					<div class="service-icon text-center">
-						<i class="tf-ion-ios-book-outline"></i>
-					</div>
-					<h3>Media &amp; Advertisement</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus. Nullam
-						iaculis arcu at mauris dapibus consectetur.</p>
-				</div>
-			</div>
-			<!-- End Single Service Item -->
 
-			<!-- Single Service Item -->
-			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-				<div class="service-block p-4  text-center">
-					<div class="service-icon text-center">
-						<i class="tf-ion-ios-briefcase-outline"></i>
-					</div>
-					<h3>Graphic Design</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus. Nullam
-						iaculis arcu at mauris dapibus consectetur.</p>
-				</div>
-			</div>
-			<!-- End Single Service Item -->
-
-			<!-- Single Service Item -->
-			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-				<div class="service-block p-4 color-bg text-center">
-					<div class="service-icon text-center">
-						<i class="tf-ion-ios-crop"></i>
-					</div>
-					<h3>Apps Development</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus. Nullam
-						iaculis arcu at mauris dapibus consectetur.</p>
-				</div>
-			</div>
-			<!-- End Single Service Item -->
-
-			<!-- Single Service Item -->
-			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-				<div class="service-block p-4 text-center">
-					<div class="service-icon text-center">
-						<i class="tf-ion-ios-home-outline"></i>
-					</div>
-					<h3>Networking</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus. Nullam
-						iaculis arcu at mauris dapibus consectetur.</p>
-				</div>
-			</div>
-			<!-- End Single Service Item -->
 
 		</div> <!-- End row -->
 	</div> <!-- End container -->
@@ -180,16 +139,30 @@ get_header();
 		<div class="row">
 			<div class="col-md-12">
 				<div id="clients-slider" class="clients-logo-slider">
-					<img src="images/client-logo/logo1.png" alt="">
-					<img src="images/client-logo/logo-2.png" alt="">
-					<img src="images/client-logo/logo-3.png" alt="">
-					<img src="images/client-logo/logo-4.png" alt="">
-					<img src="images/client-logo/logo-5.png" alt="">
-					<img src="images/client-logo/logo1.png" alt="">
-					<img src="images/client-logo/logo-2.png" alt="">
-					<img src="images/client-logo/logo-3.png" alt="">
-					<img src="images/client-logo/logo-4.png" alt="">
-					<img src="images/client-logo/logo-5.png" alt="">
+                    <?php
+
+                    $args = array(
+                        'post_type' => 'logo',
+                        'posts_per_page' => -1,
+                        'order' => 'ASC',
+
+                    );
+
+                    $query = new WP_Query($args);
+                    while ($query -> have_posts()){
+
+                        $query -> the_post();
+
+
+
+
+                        ?>
+                        <img src="<?php the_post_thumbnail_url();?>" alt="">
+
+                        <?php
+                    }
+                    wp_reset_postdata();
+                    ?>
 				</div>
 
 			</div>
@@ -268,77 +241,7 @@ get_header();
 
 	<!-- Start Testimonial
 =========================================== -->
-		
-	<section class="testimonial section" id="testimonial">
-		<div class="container">
-			<div class="row">				
-				<div class="col-lg-12">
-					<!-- testimonial wrapper -->
-					<div class="testimonial-slider">
-						<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<img src="images/client-logo/clients-1.jpg" class="img-fluid" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>William Martin</h3>
-								<span>CEO , Company Name</span>
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-				
-						<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<img src="images/client-logo/clients-2.jpg" class="img-fluid" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>Emma Harrison</h3>
-								<span>CEO , Company Name</span>
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-					
-						<!-- testimonial single -->
-						<div class="item text-center">
-							<i class="tf-ion-chatbubbles"></i>
-							<!-- client info -->
-							<div class="client-details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum nulla, soluta dolorum. Eos earum, magni asperiores, unde corporis labore, enim, voluptatum officiis voluptates alias natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quia?</p>
-							</div>
-							<!-- /client info -->
-							<!-- client photo -->
-							<div class="client-thumb">
-								<img src="images/client-logo/clients-3.jpg" class="img-fluid" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>Alexander Lucas</h3>
-								<span>CEO , Company Name</span>
-							</div>
-							<!-- /client photo -->
-						</div>
-						<!-- /testimonial single -->
-					</div>
-				</div> 		<!-- end col lg 12 -->
-			</div>	    <!-- End row -->
-		</div>       <!-- End container -->
-	</section>    <!-- End Section -->
+<?php get_template_part('content','testimonial');?>
 
 
 

@@ -26,7 +26,9 @@ Start About Section
             </div>
 
             <div class="col-md-4 text-center">
-                <img src="<?php echo get_template_directory_uri();?>/images/about/member.jpg " class="inline-block" alt="">
+                <?php if ( is_active_sidebar( 'mainbar-2' ) ) :  ?>
+                    <?php dynamic_sidebar('mainbar-2'); ?>
+                <?php endif; ?>
             </div>
             <div class="col-md-8">
                 <div class="row text-center">
@@ -34,7 +36,7 @@ Start About Section
 
                     $args = array(
                         'post_type' => 'offers',
-                        'posts_per_page' => 4,
+                        'posts_per_page' => 6,
                     );
 
                     $query = new WP_Query($args);

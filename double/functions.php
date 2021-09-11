@@ -17,7 +17,7 @@ if (! function_exists('double_setup')){
 
         add_theme_support( 'title-tag' );
 
-        add_theme_support( 'post-thumbnails', array('slides', 'testimonial','post') );
+        add_theme_support( 'post-thumbnails', array('slides', 'testimonial','post','team', 'gallery', 'logo') );
 
         load_theme_textdomain( 'double', get_template_directory_uri() . '/languages' );
 
@@ -132,6 +132,18 @@ function double_widget_init(){
 
     register_sidebar(
         array(
+            'name' 		=> 'Main Sidebar 2',
+            'id' 		=> 'mainbar-2',
+            'description'	=> 'Add one widget, as it will be the 1st widget in the footer.',
+            'before_widget' => '<div class="media-wrapper">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>'
+        )
+    );
+
+    register_sidebar(
+        array(
             'name' 		=> 'Footer 1',
             'id' 		=> 'sidebar-1',
             'description'	=> 'Add one widget, as it will be the 1st widget in the footer.',
@@ -204,6 +216,20 @@ function slider_custom_posts(){
     );
 
     //offer custom post
+    register_post_type( 'services',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Service' ),
+                'singular_name' => __( 'Service' ),
+            ),
+            'public' => true,
+            'supports' => array('title','editor','custom-fields'),
+
+        )
+    );
+
+    //offer custom post
     register_post_type( 'offers',
         // CPT Options
         array(
@@ -228,6 +254,51 @@ function slider_custom_posts(){
             ),
             'public' => true,
             'supports' => array('thumbnail','custom-fields','page-attributes'),
+
+        )
+    );
+
+    //team custom post
+
+    register_post_type( 'team',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Team' ),
+                'singular_name' => __( 'Team' ),
+            ),
+            'public' => true,
+            'supports' => array('title','editor','thumbnail','custom-fields','page-attributes'),
+
+        )
+    );
+
+    //gallery custom post
+
+    register_post_type( 'gallery',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Gallery' ),
+                'singular_name' => __( 'Gallery' ),
+            ),
+            'public' => true,
+            'supports' => array('title','thumbnail','custom-fields','page-attributes'),
+
+        )
+    );
+
+    //logo custom post
+
+    register_post_type( 'logo',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Logo' ),
+                'singular_name' => __( 'Logo' ),
+            ),
+            'public' => true,
+            'supports' => array('title','thumbnail','custom-fields','page-attributes'),
 
         )
     );

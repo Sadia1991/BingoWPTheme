@@ -101,18 +101,30 @@ Start Call To Action
 		<div class="row">
 			<div class="col-md-12">
 				<div class="company-gallery">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-1.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-2.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-3.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-4.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-5.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-5.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-1.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-2.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-3.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-4.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-5.jpg" alt="">
-					<img src="<?php echo get_template_directory_uri();?>/images/company/gallery-5.jpg" alt="">
+                    <?php
+
+                    $args = array(
+                        'post_type' => 'gallery',
+                        'posts_per_page' => -1,
+                        'order' => 'ASC',
+
+                    );
+
+                    $query = new WP_Query($args);
+                    while ($query -> have_posts()){
+
+                        $query -> the_post();
+
+
+
+
+                        ?>
+					<img src="<?php the_post_thumbnail_url();?>" alt="">
+
+                        <?php
+                    }
+                    wp_reset_postdata();
+                    ?>
 				</div>
 			</div>
 		</div>
@@ -138,100 +150,90 @@ Start Call To Action
 			</div>
 			<!-- /section title -->
 
-			<!-- team member -->
-			<div class="col-md-4 col-sm-6 ">
-				<div class="team-member text-center">
-					<div class="member-photo">
-						<!-- member photo -->
-						<img class="img-fluid" src="<?php echo get_template_directory_uri();?>/images/team/member-1.jpg" alt="Meghna">
-						<!-- /member photo -->
+            <?php
 
-						<!-- member social profile -->
-						<div class="mask">
-							<ul class="clearfix">
-								<li><a href="#"><i class="tf-ion-social-facebook"></i></a></li>
-								<li><a href="#"><i class="tf-ion-social-twitter"></i></a></li>
-								<li><a href="#"><i class="tf-ion-social-google-outline"></i></a></li>
-								<li><a href="#"><i class="tf-ion-social-dribbble"></i></a></li>
-							</ul>
-						</div>
-						<!-- /member social profile -->
-					</div>
+            $args = array(
+                'post_type' => 'team',
+                'posts_per_page' => 3,
+                'order_by' => 'menu_order',
+                'order' => 'ASC',
+            );
 
-					<!-- member name & designation -->
-					<div class="member-content">
-						<h3>Michael Jonson</h3>
-						<span>Head Of Marketing</span>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur necessitatibus ullam, culpa odio.</p>
-					</div>
-					<!-- /member name & designation -->
+            $query = new WP_Query($args);
+            while ($query -> have_posts()){
 
-				</div>
-			</div>
-			<!-- end team member -->
+                $query -> the_post();
 
-			<!-- team member -->
-			<div class="col-md-4 col-sm-6 ">
-				<div class="team-member text-center">
-					<div class="member-photo">
-						<!-- member photo -->
-						<img class="img-fluid" src="<?php echo get_template_directory_uri();?>/images/team/member-2.jpg" alt="Meghna">
-						<!-- /member photo -->
+                $designation = get_field('designation');
+                $team_facebook = get_field('team_facebook');
+                $team_twitter = get_field('team_twitter');
+                $team_google = get_field('team_google');
+                $team_dribble = get_field('team_dribble');
 
-						<!-- member social profile -->
-						<div class="mask">
-							<ul class="clearfix">
-								<li><a href="#"><i class="tf-ion-social-facebook"></i></a></li>
-								<li><a href="#"><i class="tf-ion-social-twitter"></i></a></li>
-								<li><a href="#"><i class="tf-ion-social-google-outline"></i></a></li>
-								<li><a href="#"><i class="tf-ion-social-dribbble"></i></a></li>
-							</ul>
-						</div>
-						<!-- /member social profile -->
-					</div>
 
-					<!-- member name & designation -->
-					<div class="member-content">
-						<h3>Carrick Mollenkamp</h3>
-						<span>Web Developer</span>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur necessitatibus ullam, culpa odio.</p>
-					</div>
-					<!-- /member name & designation -->
-				</div>
-			</div>
-			<!-- end team member -->
+                ?>
 
-			<!-- team member -->
-			<div class="col-md-4 col-sm-6 ">
-				<div class="team-member text-center">
-					<div class="member-photo">
-						<!-- member photo -->
-						<img class="img-fluid" src="<?php echo get_template_directory_uri();?>/images/team/member-3.jpg" alt="Meghna">
-						<!-- /member photo -->
+                <!-- team member -->
+                <div class="col-md-4 col-sm-6 ">
+                    <div class="team-member text-center">
+                        <div class="member-photo">
+                            <!-- member photo -->
+                            <img class="img-fluid" src="<?php the_post_thumbnail_url();?>" alt="Meghna">
+                            <!-- /member photo -->
 
-						<!-- member social profile -->
-						<div class="mask">
-							<ul class="clearfix">
-								<li><a href="#"><i class="tf-ion-social-facebook"></i></a></li>
-								<li><a href="#"><i class="tf-ion-social-twitter"></i></a></li>
-								<li><a href="#"><i class="tf-ion-social-google-outline"></i></a></li>
-								<li><a href="#"><i class="tf-ion-social-dribbble"></i></a></li>
-							</ul>
-						</div>
-						<!-- /member social profile -->
-					</div>
+                            <!-- member social profile -->
+                            <div class="mask">
+                                <ul class="clearfix">
+                                    <?php if ($team_facebook){ ?>
+                                        <li><a href="<?php echo $team_facebook;?>"><i class="tf-ion-social-facebook"></i></a></li>
 
-					<!-- member name & designation -->
-					<div class="member-content">
-						<h3>David Gauthier</h3>
-						<span>Head Of Management</span>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur necessitatibus ullam, culpa odio.</p>
-					</div>
-					<!-- /member name & designation -->
+                                        <?php
+                                    }
+                                    ?>
+                                    <?php if ($team_twitter){ ?>
+                                        <li><a href="<?php echo $team_twitter;?>"><i class="tf-ion-social-twitter"></i></a></li>
 
-				</div>
-			</div>
-			<!-- end team member -->
+                                        <?php
+                                    }
+                                    ?>
+
+                                    <?php if ($team_google){ ?>
+                                        <li><a href="<?php echo $team_google;?>"><i class="tf-ion-social-google-outline"></i></a></li>
+
+                                        <?php
+                                    }
+                                    ?>
+
+                                    <?php if ($team_google){ ?>
+                                        <li><a href="<?php echo $team_dribble;?>"><i class="tf-ion-social-dribbble"></i></a></li>
+
+                                        <?php
+                                    }
+                                    ?>
+
+
+
+
+                                </ul>
+                            </div>
+                            <!-- /member social profile -->
+                        </div>
+
+                        <!-- member name & designation -->
+                        <div class="member-content">
+                            <h3><?php the_title();?></h3>
+                            <span><?php echo $designation;?></span>
+                            <?php the_content(); ?>
+                        </div>
+                        <!-- /member name & designation -->
+
+                    </div>
+                </div>
+                <?php
+            }
+            wp_reset_postdata();
+            ?>
+            <!-- end team member -->
 		</div> <!-- End row -->
 	</div> <!-- End container -->
 </section> <!-- End section -->
