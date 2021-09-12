@@ -11,10 +11,10 @@ End Fixed Navigation
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Blog</h2>
+                    <h2><?php the_archive_title();?></h2>
                     <ol class="breadcrumb header-bradcrumb">
-                        <li><a href="<?php echo site_url();?>">Home</a></li>//
-                        <li class="active">Blog</li>
+                        <li><a href="<?php echo site_url();?>"><h4>Home</h4></a></li>
+                        <li class="active"><h4><?php the_archive_title();?></h4></li>
                     </ol>
                 </div>
             </div>
@@ -47,7 +47,6 @@ End Fixed Navigation
            <?php } wp_reset_postdata();?>
 
         </div>
-        <?php the_posts_pagination();?>
     </div>
 </section>
 
