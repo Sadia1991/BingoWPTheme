@@ -17,7 +17,7 @@ if (! function_exists('double_setup')){
 
         add_theme_support( 'title-tag' );
 
-        add_theme_support( 'post-thumbnails', array('slides', 'testimonial','post','team', 'gallery', 'logo') );
+        add_theme_support( 'post-thumbnails', array('slides', 'testimonial','post','team', 'gallery', 'logo','portfolio') );
 
         load_theme_textdomain( 'double', get_template_directory_uri() . '/languages' );
 
@@ -303,6 +303,32 @@ function slider_custom_posts(){
         )
     );
 
+
+    //portfolio custom post
+
+    register_post_type( 'portfolio',
+        // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Portfolio' ),
+                'singular_name' => __( 'Portfolio' ),
+            ),
+            'public' => true,
+            'supports' => array('title','editor','thumbnail','custom-fields','page-attributes'),
+
+        )
+    );
+
+    //portfolio taxonomy
+
+    register_taxonomy('portfolio-cat','portfolio', array(
+            'labels' => array(
+                    'name' => __('Categories'),
+                    'singular_name' => __('Category')
+            ),
+            'hierarchical' => true,
+            'show_admin_column' => true
+    ));
 
 }
 

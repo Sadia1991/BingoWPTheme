@@ -28,101 +28,52 @@ get_header();
 
 				<div class="portfolio-filter">
 					<button type="button" data-filter="all">All</button>
-					<button type="button" data-filter="photography">Photography</button>
-					<button type="button" data-filter="ios">IOS App</button>
-					<button type="button" data-filter="development">Development</button>
-					<button type="button" data-filter="design">Design</button>
+                    <?php
+                      $portfolio_menus = get_terms('portfolio-cat');
+                      foreach ($portfolio_menus as $portfolio_menu){
+                          ?>
+                          <button type="button" data-filter="<?php echo $portfolio_menu->slug;?>"><?php echo $portfolio_menu->name;?></button>
+
+                          <?php
+
+                      }
+                    ?>
+
 				</div>
 
 				<div class="row filtr-container">
-					<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design">
+                    <?php
+                       $args = array(
+                               'post_type' => 'portfolio',
+                               'post_per_page' => 10
+                       );
+
+                       $query = new WP_Query($args);
+                       while ($query->have_posts()){
+                           $query-> the_post();
+                    ?>
+
+
+					<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="<?php
+                    $portfolio_items = get_the_terms(get_the_ID(),'portfolio-cat');
+                    foreach ($portfolio_items as $portfolio_item){
+                        echo $portfolio_item->slug.', ';
+                    }
+                    ?>">
 						<div class="portfolio-block">
-							<img class="img-fluid" src="images/portfolio/portfolio-1.jpg" alt="">
+							<img class="img-fluid" src="<?php the_post_thumbnail_url();?>" alt="">
 							<div class="caption">
-								<a class="search-icon" href="images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
+								<a class="search-icon" href="<?php the_post_thumbnail_url();?>" data-lightbox="image-1">
 									<i class="tf-ion-ios-search-strong"></i>
 								</a>
-								<h4><a href="">AirBnB Postcard</a></h4>
+								<h4><a href="<?php the_permalink();?>"><?php the_title();?></a></h4>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, ios">
-						<div class="portfolio-block">
-							<img class="img-fluid" src="images/portfolio/portfolio-2.jpg" alt="">
-							<div class="caption">
-								<a class="search-icon" href="images/portfolio/portfolio-2.jpg" data-lightbox="image-1">
-									<i class="tf-ion-ios-search-strong"></i>
-								</a>
-								<h4><a href="">AirBnB Postcard</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, photography, development">
-						<div class="portfolio-block">
-							<img class="img-fluid" src="images/portfolio/portfolio-3.jpg" alt="">
-							<div class="caption">
-								<a class="search-icon" href="images/portfolio/portfolio-3.jpg" data-lightbox="image-1">
-									<i class="tf-ion-ios-search-strong"></i>
-								</a>
-								<h4><a href="">AirBnB Postcard</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, photography, ios">
-						<div class="portfolio-block">
-							<img class="img-fluid" src="images/portfolio/portfolio-4.jpg" alt="">
-							<div class="caption">
-								<a class="search-icon" href="images/portfolio/portfolio-4.jpg" data-lightbox="image-1">
-									<i class="tf-ion-ios-search-strong"></i>
-								</a>
-								<h4><a href="">AirBnB Postcard</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design">
-						<div class="portfolio-block">
-							<img class="img-fluid" src="images/portfolio/portfolio-5.jpg" alt="">
-							<div class="caption">
-								<a class="search-icon" href="images/portfolio/portfolio-5.jpg" data-lightbox="image-1">
-									<i class="tf-ion-ios-search-strong"></i>
-								</a>
-								<h4><a href="">AirBnB Postcard</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
-						<div class="portfolio-block">
-							<img class="img-fluid" src="images/portfolio/portfolio-6.jpg" alt="">
-							<div class="caption">
-								<a class="search-icon" href="images/portfolio/portfolio-6.jpg" data-lightbox="image-1">
-									<i class="tf-ion-ios-search-strong"></i>
-								</a>
-								<h4><a href="">AirBnB Postcard</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, photography">
-						<div class="portfolio-block">
-							<img class="img-fluid" src="images/portfolio/portfolio-7.jpg" alt="">
-							<div class="caption">
-								<a class="search-icon" href="images/portfolio/portfolio-7.jpg" data-lightbox="image-1">
-									<i class="tf-ion-ios-search-strong"></i>
-								</a>
-								<h4><a href="">AirBnB Postcard</a></h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6 filtr-item " data-category="mix, design, development">
-						<div class="portfolio-block">
-							<img class="img-fluid" src="images/portfolio/portfolio-1.jpg" alt="">
-							<div class="caption">
-								<a class="search-icon" href="images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
-									<i class="tf-ion-ios-search-strong"></i>
-								</a>
-								<h4><a href="">AirBnB Postcard</a></h4>
-							</div>
-						</div>
-					</div>
+                    <?php
+                    }
+                    wp_reset_postdata();
+                    ?>
 				</div>
 			</div> <!-- /end col-lg-12 -->
 		</div> <!-- end row -->
