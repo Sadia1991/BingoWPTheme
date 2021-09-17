@@ -44,5 +44,5 @@
             </div>
         </div>
     </div>
-    <?php } ?>
+    <?php } wp_reset_postdata();?>
 </div>

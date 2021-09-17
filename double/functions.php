@@ -3,6 +3,13 @@
    * double theme setup
    */
 
+
+
+
+
+
+get_template_part('/inc/double-options');
+
 if (! function_exists('double_setup')){
 
 
@@ -364,6 +371,20 @@ function double_comment_field($field){
 }
 
 add_filter( 'comment_form_fields', 'double_comment_field' );
+
+if (class_exists('CSF')){
+
+
+    $prefix = 'double_options';
+
+    CSF::createOptions( $prefix, array(
+        'menu_title'  => 'Double Options',
+        'menu_slug'   => 'double_options',
+
+    ) );
+}
+
+
 ?>
 
 
