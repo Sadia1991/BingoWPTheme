@@ -71,6 +71,7 @@ wp_enqueue_style('slick-css', get_template_directory_uri().'/plugins/slick/slick
 wp_enqueue_style('slick-css', get_template_directory_uri().'/plugins/slick/slick.css' );
 wp_enqueue_style('style', get_template_directory_uri().'/css/style.css' );
 wp_enqueue_style('style-css', get_stylesheet_uri() );
+wp_enqueue_style('all-css', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css' );
 
 //theme js file
 
@@ -137,17 +138,6 @@ function double_widget_init(){
         )
     );
 
-    register_sidebar(
-        array(
-            'name' 		=> 'Main Sidebar 2',
-            'id' 		=> 'mainbar-2',
-            'description'	=> 'Add one widget, as it will be the 1st widget in the footer.',
-            'before_widget' => '<div class="media-wrapper">',
-            'after_widget' => '</div>',
-            'before_title' => '<h2>',
-            'after_title' => '</h2>'
-        )
-    );
 
     register_sidebar(
         array(

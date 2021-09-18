@@ -16,19 +16,19 @@ Start About Section
 
             <div class="col-12">
                 <!-- section title -->
+                <?php $config = get_option('double_framework');?>
                 <div class="title text-center">
-                    <h2>What Do We Offer</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Voluptates, earum. </p>
+                    <h2><?php echo $config['about_sec_title'];?></h2>
+                    <p><?php echo $config['about_sec_subtitle'];?> </p>
                     <div class="border"></div>
                 </div>
                 <!-- /section title -->
             </div>
 
             <div class="col-md-4 text-center">
-                <?php if ( is_active_sidebar( 'mainbar-2' ) ) :  ?>
-                    <?php dynamic_sidebar('mainbar-2'); ?>
-                <?php endif; ?>
+                 <?php if ($image = $config['about-image']){?>
+                <img src="<?php echo $image['url'];?>" class="inline-block" alt="">
+                 <?php } ?>
             </div>
             <div class="col-md-8">
                 <div class="row text-center">

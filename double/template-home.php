@@ -27,26 +27,26 @@ Start About Section
 			<!-- section title -->
 			<div class="col-12">
 				<div class="title text-center">
-					<h2>We Are Bingo Agency</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam reprehenderit accusamus labore iusto,
-						aut, eum itaque illo totam tempora eius.</p>
+                    <?php $bingo = get_option('double_framework'); ?>
+
+					<h2><?php echo $bingo['bingo_title'];?></h2>
+					<p><?php echo $bingo['bingo_sub_title'];?></p>
 					<div class="border"></div>
 				</div>
 			</div>
 			<!-- /section title -->
 
 			<div class="col-md-6">
-				<img src="images/about/about-2.png" class="img-fluid" alt="">
+                 <?php if($bin_img = $bingo['opt-upload-2']){?>
+				<img src="<?php echo $bin_img['url'];?>" class="img-fluid" alt="">
+                 <?php } ?>
 			</div>
 			<div class="col-md-6">
 				<ul class="checklist">
-					<li>Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem laca quam venenatis vestibulum.</li>
-					<li>Aenean quam. Pellentesque ornare sem laca quam venenatis vestibulum.</li>
-					<li>Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem laca quam venenatis vestibulum.</li>
-					<li>Etiam porta sem multipage evint landing magna mollis euismod a pharetra augue.</li>
-					<li>Aenean quam. Pellentesque ornare sem laca quam venenatis vestibulum.</li>
+
+					<?php echo $bingo['about_sec_des'];?>
 				</ul>
-				<a href="#" class="btn btn-main mt-20">Learn More</a>
+				<a href="<?php echo get_the_permalink(34);?>" class="btn btn-main mt-20">Learn More</a>
 			</div>
 		</div> <!-- End row -->
 	</div> <!-- End container -->
@@ -55,13 +55,13 @@ Start About Section
 <!--
 Start Call To Action
 ==================================== -->
-<section class="call-to-action section">
+<section class="call-to-action section" style="background-image: url(<?php if($cat_img = $bingo['opt-upload-1']){echo $cat_img['url'];}?>);">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<h2>Let's Create Something Together</h2>
-				<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin bibendum auctor, <br> nisi elit consequat ipsum, nesagittis sem nid elit. Duis sed odio sitain elit.</p>
-				<a href="" class="btn btn-main">Contact Us</a>
+				<h2><?php echo $bingo['banner_title'];?></h2>
+				<p><?php echo $bingo['banner_sub_title'];?></p>
+				<a href="<?php echo get_the_permalink(30);?>" class="btn btn-main">Contact Us</a>
 			</div>
 		</div> 		<!-- End row -->
 	</div>   	<!-- End container -->
@@ -70,64 +70,42 @@ Start Call To Action
 <!--
 		Start Counter Section
 		==================================== -->
-		
 		<section  class="counter-wrapper section-sm" >
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="title">
-							<h2>Award-Winning Agency</h2>
-							<p>Vestibulum nisl tortor, consectetur quis imperdiet bibendum, laoreet sed arcu. Sed condimentum iaculis ex, in faucibus lorem accumsan non. Donec mattis tincidunt metus. Morbi sed tortor a risus luctus dignissim.</p>
+							<h2><?php echo $bingo['counter_title'];?></h2>
+							<p><?php echo $bingo['counter_sub_title'];?></p>
 						</div>
 					</div>
+                    <?php
+
+                         $counters = $bingo['counter_lists'];
+
+                        foreach ($counters as $counter){
+
+                        ?>
+
+
 					<!-- first count item -->
 					<div class="col-md-3 col-sm-6 col-xs-6 text-center " >
 						<div class="counters-item">
-							<i class="tf-ion-ios-alarm-outline"></i>
+							<i class="<?php echo $counter['counter_icon'];?>"></i>
 							<div>
-							    <span class="counter" data-count="150">0</span>
+							    <span class="counter" data-count="<?php echo $counter['counter_number'];?>">0</span>
 							</div>
-							<h3>Happy Clients</h3>
+							<h3><?php echo $counter['counter_number'];?>s</h3>
 						</div>
 					</div>
 					<!-- end first count item -->
-				
-					<!-- second count item -->
-					<div class="col-md-3 col-sm-6 col-xs-6 text-center " >
-						<div class="counters-item">
-							<i class="tf-ion-ios-analytics-outline"></i>
-							<div>
-							    <span class="counter" data-count="130">0</span>
-							</div>
-							<h3>Projects completed</h3>
-						</div>
-					</div>
-					<!-- end second count item -->
-				
-					<!-- third count item -->
-					<div class="col-md-3 col-sm-6 col-xs-6 text-center "  >
-						<div class="counters-item">
-							<i class="tf-ion-ios-compose-outline"></i>
-							<div>
-							    <span class="counter" data-count="99">0</span>
-							</div>
-				            <h3>Positive feedback</h3>
-							
-						</div>
-					</div>
-					<!-- end third count item -->
-					
-					<!-- fourth count item -->
-					<div class="col-md-3 col-sm-6 col-xs-6 text-center ">
-						<div class="counters-item kill-border">
-							<i class="tf-ion-ios-bolt-outline"></i>
-							<div>
-							    <span class="counter" data-count="250">0</span>
-							</div>
-							<h3>Cups of Coffee</h3>
-						</div>
-					</div>
-					<!-- end fourth count item -->
+                            <?php
+                        }
+
+
+
+                    ?>
+
 				</div> 		<!-- end row -->
 			</div>   	<!-- end container -->
 		</section>   <!-- end section -->
@@ -145,10 +123,9 @@ Start Call To Action
 			<!-- section title -->
 			<div class="col-12">
 				<div class="title text-center ">
-					<h2> Latest <span class="color">Posts</span></h2>
+					<h2><?php echo $bingo['blog_title'];?></h2>
 					<div class="border"></div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus facere accusamus, reprehenderit libero
-						inventore nam.</p>
+					<p><?php echo $bingo['blog_sub_title'];?></p>
 				</div>
 			</div>
 			<!-- /section title -->
