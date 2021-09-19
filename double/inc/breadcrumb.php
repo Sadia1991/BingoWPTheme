@@ -5,10 +5,14 @@
  * Date: 9/9/2021
  * Time: 5:43 PM
  */
+$head_image = get_option('double_framework');
+
 
 ?>
 
-<section class="single-page-header">
+
+
+<section class="single-page-header" style="background-image: url(<?php if ($img = $head_image['head_image']){ echo $img['url']; }?>);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

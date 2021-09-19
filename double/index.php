@@ -7,7 +7,7 @@
 End Fixed Navigation
 ==================================== -->
 
-    <section class="single-page-header">
+    <section class="single-page-header" style="background-image: url(<?php if ($img = $head_image['head_image']){ echo $img['url']; }?>);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

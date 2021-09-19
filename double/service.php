@@ -11,6 +11,7 @@ get_header();
 
 
 <?php get_template_part('inc/breadcrumb'); ?>
+<?php $service  = get_option('double_framework');?>
 
 	<!-- Start Services Section
 		==================================== -->
@@ -21,9 +22,8 @@ get_header();
 			<!-- section title -->
 			<div class="col-12">
 				<div class="title text-center">
-					<h2>Our Services</h2>
-					<p>Vestibulum nisl tortor, consectetur quis imperdiet bibendum, laoreet sed arcu. Sed condimentum iaculis ex,
-						in faucibus lorem accumsan non. Donec mattis tincidunt metus. Morbi sed tortor a risus luctus dignissim.</p>
+					<h2><?php echo $service['service_title'];?></h2>
+					<p><?php echo $service['service_sub_title'];?></p>
 					<div class="border"></div>
 				</div>
 			</div>
@@ -82,9 +82,8 @@ get_header();
 			<!-- section title -->
 			<div class="col-12">
 				<div class="title text-center">
-					<h2>Our Skills</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus fugiat, vel veniam, eos et
-						delectus eveniet molestiae. Esse, voluptas ratione.</p>
+					<h2><?php echo $service['slider_title'];?></h2>
+					<p><?php echo $service['slider_sub_title'];?></p>
 					<div class="border"></div>
 				</div>
 			</div>
@@ -102,35 +101,26 @@ get_header();
 			</div>
 			<div class="col-md-6 col-md-offset-1">
 				<div class="progress-block">
+                        <?php
+                        $sliders = $service['slider_lists'];
+                        if($sliders){
+                            ?>
 					<ul>
+
+                            <?php
+
+                            foreach($sliders as $slider)
+                            {
+                                ?>
 						<li>
-							<span>Photoshop</span>
+							<span><?php echo $slider['slide_title'];?></span>
 							<div class="progress">
 								<div class="progress-bar" style="width: 90%;">
+                                    <?php echo $slider['slider_number'];?>
 								</div>
 							</div>
 						</li>
-						<li>
-							<span>Web Application</span>
-							<div class="progress">
-								<div class="progress-bar" style="width: 85%;">
-								</div>
-							</div>
-						</li>
-						<li>
-							<span>Andriod Application</span>
-							<div class="progress">
-								<div class="progress-bar" style="width: 92%;">
-								</div>
-							</div>
-						</li>
-						<li>
-							<span>IOS Development</span>
-							<div class="progress">
-								<div class="progress-bar" style="width: 78%;">
-								</div>
-							</div>
-						</li>
+						<?php } } ?>
 					</ul>
 
 				</div>

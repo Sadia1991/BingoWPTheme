@@ -41,6 +41,22 @@ if( class_exists( 'CSF' ) ) {
         )
     ));
 
+    // header image a section
+    CSF::createSection($prefix, array(
+
+        'title' => 'Header Image',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'head_image',
+                'type' => 'media',
+                'title' => 'Upload Logo',
+            ),
+
+        )
+    ));
+
+
     // About Options
     CSF::createSection($prefix, array(
         'id' => 'about_options',
@@ -175,6 +191,8 @@ if( class_exists( 'CSF' ) ) {
         )
     ));
 
+
+    // Create a section
     CSF::createSection($prefix, array(
 
         'title' => 'Blog Section Title',
@@ -194,5 +212,201 @@ if( class_exists( 'CSF' ) ) {
 
         )
     ));
+
+    // About Options
+    CSF::createSection($prefix, array(
+        'id' => 'about_us_options',
+        'title' => 'About Us Section',
+        'icon' => 'fas fa-arrow-right',
+    ));
+
+    // Create a section
+    CSF::createSection($prefix, array(
+        'parent' => 'about_us_options',
+        'title' => 'About First Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'about_first_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'about_first_sec_des',
+                'title' => 'Description',
+                'type' => 'textarea',
+            ),
+            array(
+                'id' => 'opt-about-1',
+                'type' => 'media',
+                'title' => 'Upload Image',
+            )
+
+        )
+    ));
+
+
+    // Create a section
+    CSF::createSection($prefix, array(
+        'parent' => 'about_us_options',
+        'title' => 'About Second Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'about_second_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'about_second_sec_des',
+                'title' => 'Description',
+                'type' => 'textarea',
+            ),
+            array(
+                'id' => 'opt-about-3',
+                'type' => 'media',
+                'title' => 'Upload Image',
+            )
+
+        )
+    ));
+
+
+    // Create a section
+    CSF::createSection($prefix, array(
+        'parent' => 'about_us_options',
+        'title' => 'About Third Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'about_third_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'about_third_sec_des',
+                'title' => 'Description',
+                'type' => 'textarea',
+            ),
+            array(
+                'id' => 'opt-about-4',
+                'type' => 'media',
+                'title' => 'Upload Image',
+            )
+
+        )
+    ));
+
+    // Create a section
+    CSF::createSection($prefix, array(
+
+        'title' => 'Gallery Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'gallery_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'gallery_sub_title',
+                'title' =>'Sub Title',
+                'type' => 'text'
+            ),
+
+        )
+    ));
+
+
+    // Create a section
+    CSF::createSection($prefix, array(
+
+        'title' => 'Team Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'team_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'team_sub_title',
+                'title' =>'Sub Title',
+                'type' => 'text'
+            ),
+
+        )
+    ));
+
+    // Create a section
+    CSF::createSection($prefix, array(
+
+        'title' => 'Service Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'service_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'service_sub_title',
+                'title' =>'Sub Title',
+                'type' => 'text'
+            ),
+
+        )
+    ));
+
+
+    // Counter Options
+
+    CSF::createSection($prefix, array(
+        'id' => 'slider_options',
+        'title' => 'Slider Options',
+        'icon' => 'fas fa-angle-double-right',
+        'fields' => array(
+            array(
+                'id' => 'slider_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'slider_sub_title',
+                'title' =>'Sub Title',
+                'type' => 'text'
+            ),
+            array(
+                'id' => 'slider_lists',
+                'title' => 'Slider Lists',
+                'type' => 'group',
+                'button_title' => 'Add New Slider',
+                'fields' => array(
+                    array(
+                        'id' => 'slide_title',
+                        'type' => 'text',
+                        'title' => 'Slide Title'
+                    ),
+                    array(
+                        'id' => 'slider_number',
+                        'type' => 'slider',
+                        'title' => 'Slider Number',
+
+                    ),
+
+                )
+            ),
+
+
+        )
+    ));
+
 
 }
