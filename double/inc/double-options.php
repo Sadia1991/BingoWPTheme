@@ -141,6 +141,12 @@ if( class_exists( 'CSF' ) ) {
                 'id' => 'opt-upload-1',
                 'type' => 'media',
                 'title' => 'Upload Image',
+            ),
+            array(
+                'id' => 'cta_btn_url',
+                'type'=> 'text',
+                'title' => 'Contact Us',
+
             )
         )
     ));
@@ -364,7 +370,6 @@ if( class_exists( 'CSF' ) ) {
         )
     ));
 
-
     // Counter Options
 
     CSF::createSection($prefix, array(
@@ -408,5 +413,182 @@ if( class_exists( 'CSF' ) ) {
         )
     ));
 
+    // Create a section
+    CSF::createSection($prefix, array(
+
+        'title' => 'Skill Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'skill_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'skill_sub_title',
+                'title' =>'Sub Title',
+                'type' => 'text'
+            ),
+
+        )
+    ));
+
+    // Create a section
+    CSF::createSection($prefix, array(
+
+        'title' => 'Portfolio Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'all_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'all_sub_title',
+                'title' =>'Sub Title',
+                'type' => 'text'
+            ),
+
+        )
+    ));
+
+
+    // About Options
+    CSF::createSection($prefix, array(
+        'id' => 'team_about_options',
+        'title' => 'Team About Us Section',
+        'icon' => 'fas fa-arrow-right',
+    ));
+
+    // Create a section
+    CSF::createSection($prefix, array(
+        'parent' => 'team_about_options',
+        'title' => 'About Us Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'all_about_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'all_about_sub_title',
+                'title' =>'Sub Title',
+                'type' => 'text'
+            ),
+            array(
+                'id' => 'abs_con',
+                'type' => 'media',
+                'title' => 'Upload Image',
+            ),
+            array(
+                'id' => 'about_team_sec_des',
+                'title' => 'Description',
+                'type' => 'textarea'
+            )
+
+        )
+    ));
+
+    // Create a section
+    CSF::createSection($prefix, array(
+
+        'title' => 'Contact Section Title',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'con_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'con_sub_title',
+                'title' =>'Sub Title',
+                'type' => 'text'
+            ),
+
+        )
+    ));
+
+    // Create a section
+    CSF::createSection($prefix, array(
+
+        'title' => 'Contact Details',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'con_dec_title',
+                'title' => 'Title',
+                'type' => 'text',
+
+            ),
+            array(
+                'id' => 'con_dec_sub_title',
+                'title' =>'Sub Title',
+                'type' => 'text'
+            ),
+
+        )
+    ));
+
+    // Contact Options
+    CSF::createSection($prefix, array(
+        'id' => 'contact_options',
+        'title' =>'Contact Options',
+        'icon' => 'fas fa-bullhorn',
+        'fields' => array(
+            array(
+                'id' => 'contact_info',
+                'title' => 'Contact Info',
+                'type' => 'group',
+                'button_title' => 'Add New Contact Items',
+                'fields' => array(
+                    array(
+                        'id' => 'contact_info_icon',
+                        'type' => 'icon',
+                        'title' => 'Contact Info Icon',
+                    ),
+                    array(
+                        'id' => 'contact_info_des',
+                        'type' => 'text',
+                        'title' => 'Contact Info Description',
+                    )
+                )
+            ),
+
+
+        )
+    ));
+
+    // Social Options
+    CSF::createSection($prefix, array(
+        'title' => 'Social Icons',
+        'icon' => 'fas fa-arrow-right',
+        'fields' => array(
+            array(
+                'id' => 'social_icons',
+                'title'=> 'Social Icons',
+                'type' => 'group',
+                'button_title' =>'Add New Social Box',
+                'fields' => array(
+                    array(
+                        'id' => 'social_link',
+                        'type' => 'text',
+                        'title' => 'Social Link',
+                    ),
+                    array(
+                        'id' => 'social_icon',
+                        'type' => 'icon',
+                        'title' => 'Social Icon',
+                    )
+                )
+            )
+        )
+    ));
 
 }

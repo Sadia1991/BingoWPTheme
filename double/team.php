@@ -7,8 +7,10 @@
 
 get_header();
 
-?>
+$team = get_option('double_framework');
 
+?>
+    <pre><?php //var_dump(get_option('double_framework'));?></pre>
 
 <?php get_template_part('inc/breadcrumb'); ?>
 	<!--
@@ -20,27 +22,19 @@ Start About Section
 		
 			<!-- section title -->
 			<div class="title text-center"  >
-				<h2>About Us</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa placeat voluptas tempore recusandae quasi nesciunt in, facilis animi. Sint, possimus?</p>
+				<h2><?php echo $team['all_about_title'];?></h2>
+				<p><?php echo $team['all_about_sub_title'];?></p>
 				<div class="border"></div>
 			</div>
 			<!-- /section title -->
 
 			<div class="col-md-6">
-				<img src="images/about-us.jpg" class="img-fluid" alt="">
+				<img src="<?php if ($tea = $team['abs_con']){ echo $tea['url'];}?>" class="img-fluid" alt="">
 			</div>
 			<div class="col-md-6">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tempor eros. Pellentesque elementum nulla sed justo tempor posuere sit amet sit amet ligula. Curabitur felis nibh, imperdiet eu erat non, luctus cursus lectus. Donec maximus diam leo, sed fringilla nisl auctor eget. Donec dictum neque est, ac faucibus ex blandit a.</p>
-				<p>Curabitur felis nibh, imperdiet eu erat non, luctus cursus lectus. Donec maximus diam leo, sed fringilla nisl auctor eget. Donec dictum neque est, ac faucibus ex blandit a</p>
-				<h4>Lorem ipsum dolor sit.</h4>
-				<ul class="feature-list">
-					<li> <i class="tf-ion-android-checkmark-circle"></i> Web Development</li>
-					<li> <i class="tf-ion-android-checkmark-circle"></i> Application Development</li>
-					<li> <i class="tf-ion-android-checkmark-circle"></i> Website Design</li>
-					<li> <i class="tf-ion-android-checkmark-circle"></i> UI/UX Design</li>
-					<li> <i class="tf-ion-android-checkmark-circle"></i> SEO Service</li>
-				</ul>
-				<a href="#" class="btn btn-main mt-20">Learn More</a>
+                <?php echo $team['about_team_sec_des'];?>
+
+				<a href="<?php echo $team['cta_btn_url'];?>" class="btn btn-main mt-20">Learn More</a>
 			</div>
 		</div> 		<!-- End row -->
 	</div>   	<!-- End container -->
@@ -57,9 +51,8 @@ Start About Section
 			<!-- section title -->
 			<div class="col-12">
 				<div class="title text-center ">
-					<h2>Our Team</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque quasi tempora obcaecati, quis
-						similique quos.</p>
+					<h2><?php echo $team['team_title'];?></h2>
+					<p><?php echo $team['team_sub_title'];?></p>
 					<div class="border"></div>
 				</div>
 			</div>

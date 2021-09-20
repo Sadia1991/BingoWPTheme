@@ -7,6 +7,8 @@
 
 get_header();
 
+$daa = get_option('double_framework');
+
 ?>
 
 
@@ -19,9 +21,8 @@ get_header();
 
 				<!-- section title -->
 				<div class="title text-center">
-					<h2>Our Works</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, veritatis. Lorem ipsum dolor sit amet,
-						consectetur adipisicing elit. Minima, vitae? </p>
+					<h2><?php echo $daa['all_title'];?></h2>
+					<p><?php echo $daa['all_sub_title'];?></p>
 					<div class="border"></div>
 				</div>
 				<!-- /section title -->

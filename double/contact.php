@@ -6,6 +6,8 @@
 
 get_header();
 
+$con = get_option('double_framework');
+
 ?>
 
 
@@ -21,8 +23,8 @@ get_header();
 			<!-- section title -->
 			<div class="col-12">
 			<div class="title text-center" >
-				<h2>Get In Touch</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate facilis eveniet maiores ab maxime nam ut numquam molestiae quaerat incidunt?</p>
+				<h2><?php echo $con['con_title'];?></h2>
+				<p><?php echo $con['con_sub_title'];?></p>
 				<div class="border"></div>
 			</div>
 			</div>
@@ -30,33 +32,31 @@ get_header();
 			
 			<!-- Contact Details -->
 			<div class="contact-details col-md-6 " >
-				<h3>Contact Details</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, vero, provident, eum eligendi blanditiis ex explicabo vitae nostrum facilis asperiores dolorem illo officiis ratione vel fugiat dicta laboriosam labore adipisci.</p>
+				<h3><?php echo $con['con_dec_title'];?></h3>
+				<p><?php echo $con['con_dec_sub_title'];?></p>
 				<ul class="contact-short-info" >
+                    <?php $contact_items = $con['contact_info'];
+                        foreach ($contact_items as $contact_item){ ?>
+
 					<li>
-						<i class="tf-ion-ios-home"></i>
-						<span>Khaja Road, Bayzid, Chittagong, Bangladesh</span>
+						<i class="<?php echo $contact_item['contact_info_icon'];?>"></i>
+						<span><?php echo $contact_item['contact_info_des'];?></span>
 					</li>
-					<li>
-						<i class="tf-ion-android-phone-portrait"></i>
-						<span>Phone: +880-31-000-000</span>
-					</li>
-					<li>
-						<i class="tf-ion-android-globe"></i>
-						<span>Fax: +880-31-000-000</span>
-					</li>
-					<li>
-						<i class="tf-ion-android-mail"></i>
-						<span>Email: hello@meghna.com</span>
-					</li>
+                            <?php
+                        }
+
+                    ?>
 				</ul>
 				<!-- Footer Social Links -->
 				<div class="social-icon">
 					<ul>
-						<li><a href="#"><i class="tf-ion-social-facebook"></i></a></li>
-						<li><a href="#"><i class="tf-ion-social-twitter"></i></a></li>
-						<li><a href="#"><i class="tf-ion-social-dribbble-outline"></i></a></li>
-						<li><a href="#"><i class="tf-ion-social-linkedin-outline"></i></a></li>
+                        <?php $social_icons = $con['social_icons'];
+                         foreach ($social_icons as $social_icon){ ?>
+						<li><a href="<?php echo $social_icon['social_link'];?>"><i class="<?php echo $social_icon['social_icon'];?>"></i></a></li>
+                         <?php
+                         }
+                        ?>
+						
 					</ul>
 				</div>
 				<!--/. End Footer Social Links -->

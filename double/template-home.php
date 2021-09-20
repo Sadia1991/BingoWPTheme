@@ -61,7 +61,7 @@ Start Call To Action
 			<div class="col-md-12 text-center">
 				<h2><?php echo $bingo['banner_title'];?></h2>
 				<p><?php echo $bingo['banner_sub_title'];?></p>
-				<a href="<?php echo get_the_permalink(30);?>" class="btn btn-main">Contact Us</a>
+				<a href="<?php echo $bingo['cta_btn_url'];?>" class="btn btn-main">Contact Us</a>
 			</div>
 		</div> 		<!-- End row -->
 	</div>   	<!-- End container -->

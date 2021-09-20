@@ -91,12 +91,9 @@ get_header();
 
 			<div class="col-md-5">
 				<div class="team-skills-content">
-					<h2>Simple To Start</h2>
-					<p>Vestibulum nisl tortor, consectetur quis imperdiet bium, letcu. Sedndime ntumiaculis ex, in
-						faucibus lorem accumsan non. Donec mattis tin unt metuorbi sed tort Igor aman luctus dignissim.
-						Vestibulum nisl tortor, consectetur quis imperdiet bium, letcu. Sedndime ntumiaculis ex, in
-						faucibus lorem accumsan non.</p>
-					<a href="" class="btn btn-main mt-20">Contact Us</a>
+					<h2><?php echo $service['skill_title'];?></h2>
+					<p><?php echo $service['skill_sub_title'];?></p>
+					<a href="<?php echo $service['cta_btn_url'];?>" class="btn btn-main mt-20">Contact Us</a>
 				</div>
 			</div>
 			<div class="col-md-6 col-md-offset-1">
@@ -115,8 +112,8 @@ get_header();
 						<li>
 							<span><?php echo $slider['slide_title'];?></span>
 							<div class="progress">
-								<div class="progress-bar" style="width: 90%;">
-                                    <?php echo $slider['slider_number'];?>
+								<div class="progress-bar" style="width: <?php echo $slider['slider_number'];?>%;">
+                                   <div><?php echo $slider['slider_number'];?>%</div>
 								</div>
 							</div>
 						</li>
@@ -162,71 +159,48 @@ get_header();
 
 
 
-	<!--
-		Start Counter Section
-		==================================== -->
-		
-		<section  class="counter-wrapper section-sm" >
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<div class="title">
-							<h2>Award-Winning Agency</h2>
-							<p>Vestibulum nisl tortor, consectetur quis imperdiet bibendum, laoreet sed arcu. Sed condimentum iaculis ex, in faucibus lorem accumsan non. Donec mattis tincidunt metus. Morbi sed tortor a risus luctus dignissim.</p>
-						</div>
-					</div>
-					<!-- first count item -->
-					<div class="col-md-3 col-sm-6 col-xs-6 text-center " >
-						<div class="counters-item">
-							<i class="tf-ion-ios-alarm-outline"></i>
-							<div>
-							    <span class="counter" data-count="150">0</span>
-							</div>
-							<h3>Happy Clients</h3>
-						</div>
-					</div>
-					<!-- end first count item -->
-				
-					<!-- second count item -->
-					<div class="col-md-3 col-sm-6 col-xs-6 text-center " >
-						<div class="counters-item">
-							<i class="tf-ion-ios-analytics-outline"></i>
-							<div>
-							    <span class="counter" data-count="130">0</span>
-							</div>
-							<h3>Projects completed</h3>
-						</div>
-					</div>
-					<!-- end second count item -->
-				
-					<!-- third count item -->
-					<div class="col-md-3 col-sm-6 col-xs-6 text-center "  >
-						<div class="counters-item">
-							<i class="tf-ion-ios-compose-outline"></i>
-							<div>
-							    <span class="counter" data-count="99">0</span>
-							</div>
-				            <h3>Positive feedback</h3>
-							
-						</div>
-					</div>
-					<!-- end third count item -->
-					
-					<!-- fourth count item -->
-					<div class="col-md-3 col-sm-6 col-xs-6 text-center ">
-						<div class="counters-item kill-border">
-							<i class="tf-ion-ios-bolt-outline"></i>
-							<div>
-							    <span class="counter" data-count="250">0</span>
-							</div>
-							<h3>Cups of Coffee</h3>
-						</div>
-					</div>
-					<!-- end fourth count item -->
-				</div> 		<!-- end row -->
-			</div>   	<!-- end container -->
-		</section>   <!-- end section -->
+    <!--
+        Start Counter Section
+        ==================================== -->
+    <section  class="counter-wrapper section-sm" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="title">
+                        <h2><?php echo $service['counter_title'];?></h2>
+                        <p><?php echo $service['counter_sub_title'];?></p>
+                    </div>
+                </div>
+                <?php
 
+                $counters = $service['counter_lists'];
+
+                foreach ($counters as $counter){
+
+                    ?>
+
+
+                    <!-- first count item -->
+                    <div class="col-md-3 col-sm-6 col-xs-6 text-center " >
+                        <div class="counters-item">
+                            <i class="<?php echo $counter['counter_icon'];?>"></i>
+                            <div>
+                                <span class="counter" data-count="<?php echo $counter['counter_number'];?>">0</span>
+                            </div>
+                            <h3><?php echo $counter['counter_number'];?>s</h3>
+                        </div>
+                    </div>
+                    <!-- end first count item -->
+                    <?php
+                }
+
+
+
+                ?>
+
+            </div> 		<!-- end row -->
+        </div>   	<!-- end container -->
+    </section>   <!-- end section -->
 
 
 	<!-- Start Testimonial
