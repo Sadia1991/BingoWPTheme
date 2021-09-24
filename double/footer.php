@@ -34,9 +34,12 @@
     </div> <!-- end container -->
   </div>
   <div class="footer-bottom">
-    <h5>Copyright &copy;<?php echo date('Y');?> All rights reserved.</h5>
-    <h6>Design and Developed by <?php bloginfo('name');?></h6>
-		<h6>Distributed by <a href="https://softinnovationbd.com/">SoftinnovationBD</a></h6>
+    <h5>Copyright &copy;<?php echo esc_attr(date('Y'));?> All rights reserved.</h5>
+      <h6>Developed and Distributed by <a href="<?php echo esc_url( __( 'https://softinnovationbd.com/', 'double' ) ); ?>">
+              <?php
+
+                printf( __( 'Proudly powered by %s.', 'double' ), 'SoftinnovationBD' ); ?>
+          </a></h6>
   </div>
 </footer> <!-- end footer -->
 </body>

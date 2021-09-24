@@ -115,6 +115,12 @@ if( class_exists( 'CSF' ) ) {
                 'id' => 'opt-upload-2',
                 'type' => 'media',
                 'title' => 'Upload Image',
+            ),
+
+            array(
+                'id' => 'bingo_btn_url',
+                'title' =>'Learn More',
+                'type' => 'text'
             )
         )
     ));

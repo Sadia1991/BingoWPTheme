@@ -7,11 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-    <?php $options = get_option( 'double_framework' ); ?>
+    <?php
+      $options = get_option( 'double_framework' );
+      $favicon = $options['favicon'];
+      $logo = $options['logo'];
+      $logo_one = $options['hello']
+      ?>
     <!-- Favicon -->
-    <?php if($favicon = $options['favicon']){?>
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $favicon['url'];?>" />
-    <?php } ?>
+    <?php
+      if($options['favicon'])
+
+      {?>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_url($favicon['url']);?>" />
+    <?php
+      }
+
+    ?>
     <?php wp_head(); ?>
 </head>
 
@@ -28,13 +39,15 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <!-- logo -->
 
-        <a class="navbar-brand logo" href="<?php echo site_url();?>">
-            <?php if($logo = $options['logo']){?>
-            <img class="logo-default" src="<?php echo $logo['url'];?>" alt="logo"/>
-            <?php } ?>
-            <?php if($logo_one = $options['hello']){?>
-            <img class="logo-white" src="<?php echo $logo_one['url'];?>" alt="logo"/>
-            <?php } ?>
+        <a class="navbar-brand logo" href="<?php echo esc_url(site_url());?>">
+            <?php
+             if($options['logo']):?>
+            <img class="logo-default" src="<?php echo esc_url($logo['url']);?>" alt="logo"/>
+            <?php endif; ?>
+            <?php
+            if($options['hello']): ?>
+            <img class="logo-white" src="<?php echo esc_url($logo_one['url']);?>" alt="logo"/>
+            <?php endif; ?>
 
         </a>
         <!-- /logo -->

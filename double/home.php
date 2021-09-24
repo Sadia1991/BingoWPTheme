@@ -4,12 +4,14 @@
 Template Name: Home
 */
 
-get_header(); ?>
+get_header();
+
+?>
 
 
-	<?php get_template_part('content','slider');?>
+<?php get_template_part('template-parts/content/content','slider');?>
+<?php get_template_part('template-parts/content/content','offer');?>
 
-    <?php get_template_part('content','offer');?>
 
 
 
@@ -27,26 +29,35 @@ Start About Section
 			<!-- section title -->
 			<div class="col-12">
 				<div class="title text-center">
-                    <?php $bingo = get_option('double_framework'); ?>
-
-					<h2><?php echo $bingo['bingo_title'];?></h2>
-					<p><?php echo $bingo['bingo_sub_title'];?></p>
+                    <?php
+                    $bingo = get_option('double_framework');
+                    $bin_img = $bingo['opt-upload-2'];
+                    ?>
+                    <?php if ($bingo['bingo_title']):?>
+					<h2><?php echo esc_html($bingo['bingo_title']);?></h2>
+                    <?php endif; ?>
+                    <?php if ($bingo['bingo_sub_title']):?>
+					<p><?php echo esc_attr($bingo['bingo_sub_title']);?></p>
+                    <?php endif; ?>
 					<div class="border"></div>
 				</div>
 			</div>
 			<!-- /section title -->
 
 			<div class="col-md-6">
-                 <?php if($bin_img = $bingo['opt-upload-2']){?>
-				<img src="<?php echo $bin_img['url'];?>" class="img-fluid" alt="">
-                 <?php } ?>
+                 <?php if($bingo['opt-upload-2']):?>
+				<img src="<?php echo esc_url($bin_img['url']);?>" class="img-fluid" alt="">
+                 <?php endif; ?>
 			</div>
 			<div class="col-md-6">
 				<ul class="checklist">
-
-					<?php echo $bingo['about_sec_des'];?>
+                    <?php if ($bingo['about_sec_des']): ?>
+					<?php echo esc_attr($bingo['about_sec_des']);?>
+                    <?php endif; ?>
 				</ul>
-				<a href="<?php echo get_the_permalink(34);?>" class="btn btn-main mt-20">Learn More</a>
+                <?php if ($bingo['bingo_btn_url']): ?>
+				<a href="<?php echo esc_url($bingo['bingo_btn_url']);?>" class="btn btn-main mt-20"><?php esc_html_e('Learn More','double');?></a>
+                <?php endif; ?>
 			</div>
 		</div> <!-- End row -->
 	</div> <!-- End container -->
