@@ -19,7 +19,10 @@
                 <a href="#"><?php the_author();?></a>&nbsp;/
             </li>
             <li class="list-inline-item">
-                <a href="#"><?php get_comments_number();?></a>&nbsp;/
+                <a href="#"><?php the_category( ', ' ); ?></a>&nbsp;/
+            </li>
+            <li class="list-inline-item">
+                <a href="#"><?php echo get_the_date(); ?> </a>&nbsp;/
             </li>
 
         </ul>

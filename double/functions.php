@@ -122,7 +122,9 @@ function double_preloader() {
 add_action('wp_body_open', 'double_preloader');
 
 
-require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+require_once get_template_directory() . '/inc/double-activation.php';
+require_once get_template_directory() . '/inc/double-demo-content.php';
 
 function double_widget_init(){
 

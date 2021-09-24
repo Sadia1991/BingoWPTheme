@@ -56,7 +56,7 @@ $con = get_option('double_framework');
                          <?php
                          }
                         ?>
-						
+
 					</ul>
 				</div>
 				<!--/. End Footer Social Links -->

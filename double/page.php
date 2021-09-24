@@ -6,30 +6,26 @@
 <section class="blog-details section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
 
 
           <?php
 
-            while (have_posts()){
-                the_post();
+          // Start the Loop.
+          while ( have_posts() ) :
+              the_post();
 
-                get_template_part('template-parts/content');
-            }
+              get_template_part( 'template-parts/content/content', 'page' );
+
+              // If comments are open or we have at least one comment, load up the comment template.
+              if ( comments_open() || get_comments_number() ) {
+                  comments_template();
+              }
+
+          endwhile; // End the loop.
+          ?>
 
 
 
-           ?>
-
-      </div>
-      <div class="col-lg-4">
-        <!-- sidebar -->
-        <aside class="sidebar">
-            <?php if ( is_active_sidebar( 'mainbar-1' ) ) :  ?>
-                <?php dynamic_sidebar('mainbar-1'); ?>
-            <?php endif; ?>
-        </aside>
-      </div>
     </div>
   </div>
 </section>
