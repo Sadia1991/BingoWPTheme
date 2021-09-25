@@ -24,7 +24,8 @@
                     );
 
                     $query = new WP_Query($args);
-                    while ($query -> have_posts()){
+                    if ($query->have_posts()):
+                    while ($query -> have_posts()):
 
                     $query -> the_post();
 
@@ -39,7 +40,7 @@
                         <i class="tf-ion-chatbubbles"></i>
                         <!-- client info -->
                         <div class="client-details">
-                            <p><?php echo $description;?></p>
+                            <p><?php echo esc_html($description);?></p>
                         </div>
                         <!-- /client info -->
                         <!-- client photo -->
@@ -47,15 +48,18 @@
                             <img src="<?php the_post_thumbnail_url();?>" class="img-fluid" alt="">
                         </div>
                         <div class="client-meta">
-                            <h3><?php echo $name;?></h3>
-                            <span><?php echo $designation;?></span>
+                            <h3><?php echo esc_html($name);?></h3>
+                            <span><?php echo esc_html($designation);?></span>
                         </div>
                         <!-- /client photo -->
                     </div>
                     <?php
-                    }
+                    endwhile;
                     wp_reset_postdata();
-                    ?>
+                    else : ?>
+                        <h2><?php esc_html_e( 'Sorry, no posts matched your criteria.','double' ); ?></h2>
+                    <?php endif; ?>
+
                     <!-- /testimonial single -->
 
                 </div>

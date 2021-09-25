@@ -39,7 +39,7 @@
                               <?php the_content(); ?>
                               <?php if ($btn_text) { ?>
                                   <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8"
-                                     class="btn btn-main" href="<?php echo esc_url($btn_link); ?>"><?php echo esc_attr($btn_text); ?></a>
+                                     class="btn btn-main" href="<?php echo esc_attr($btn_link); ?>"><?php echo esc_html($btn_text); ?></a>
                                   <?php
                               }
 
@@ -52,7 +52,7 @@
           endwhile;
           wp_reset_postdata();
          else : ?>
-          <h2 style="padding-top: 20px;text-align: center;color: #28ABE3;"><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></h2>
+          <h2 style="padding-top: 20px;text-align: center;color: #28ABE3;"><?php esc_html_e('Sorry, no posts matched your criteria.','double'); ?></h2>
           <?php
       endif;
     ?>

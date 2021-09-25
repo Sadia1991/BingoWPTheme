@@ -118,10 +118,10 @@ if( class_exists( 'CSF' ) ) {
             ),
 
             array(
-                'id' => 'bingo_btn_url',
-                'title' =>'Learn More',
-                'type' => 'text'
-            )
+                'id'    => 'opt-link-1',
+                'type'  => 'text',
+                'title' => 'Learn More',
+            ),
         )
     ));
 

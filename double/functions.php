@@ -47,6 +47,20 @@ if (! function_exists('double_setup')){
             )
         );
 
+        add_theme_support(
+            'html5',
+            array(
+                'search-form',
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+                'script',
+                'style',
+                'navigation-widgets',
+            )
+        );
+
 
         // This theme uses wp_nav_menu() in two locations.
         register_nav_menus(
@@ -364,17 +378,6 @@ function double_comment_field($field){
 
 add_filter( 'comment_form_fields', 'double_comment_field' );
 
-if (class_exists('CSF')){
-
-
-    $prefix = 'double_options';
-
-    CSF::createOptions( $prefix, array(
-        'menu_title'  => 'Double Options',
-        'menu_slug'   => 'double_options',
-
-    ) );
-}
 
 
 ?>

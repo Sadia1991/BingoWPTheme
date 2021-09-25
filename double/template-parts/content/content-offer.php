@@ -68,7 +68,7 @@ Start About Section
                     endwhile;
                     wp_reset_postdata();
                     else : ?>
-                        <h2 style="padding-top: 20px;text-align: center;color: #28ABE3;"><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></h2>
+                        <h2 style="padding-top: 20px;text-align: center;color: #28ABE3;"><?php esc_html_e('Sorry, no posts matched your criteria.','double'); ?></h2>
                         <?php
                     endif;
                     ?>

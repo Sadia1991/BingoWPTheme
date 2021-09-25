@@ -21,9 +21,14 @@ $daa = get_option('double_framework');
 
 				<!-- section title -->
 				<div class="title text-center">
-					<h2><?php echo $daa['all_title'];?></h2>
-					<p><?php echo $daa['all_sub_title'];?></p>
+                    <?php if ($daa['all_title']) : ?>
+					<h2><?php echo esc_html($daa['all_title']);?></h2>
+                    <?php endif; ?>
+                    <?php if ($daa['all_sub_title']) : ?>
+					<p><?php echo esc_html($daa['all_sub_title']);?></p>
+
 					<div class="border"></div>
+                    <?php endif;?>
 				</div>
 				<!-- /section title -->
 
@@ -31,13 +36,15 @@ $daa = get_option('double_framework');
 					<button type="button" data-filter="all">All</button>
                     <?php
                       $portfolio_menus = get_terms('portfolio-cat');
-                      foreach ($portfolio_menus as $portfolio_menu){
+                      if ($portfolio_menus):
+                      foreach ($portfolio_menus as $portfolio_menu):
                           ?>
                           <button type="button" data-filter="<?php echo $portfolio_menu->slug;?>"><?php echo $portfolio_menu->name;?></button>
 
                           <?php
 
-                      }
+                      endforeach;
+                      endif;
                     ?>
 
 				</div>
@@ -50,7 +57,8 @@ $daa = get_option('double_framework');
                        );
 
                        $query = new WP_Query($args);
-                       while ($query->have_posts()){
+                       if ($query->have_posts()):
+                       while ($query->have_posts()):
                            $query-> the_post();
                     ?>
 
@@ -72,9 +80,11 @@ $daa = get_option('double_framework');
 						</div>
 					</div>
                     <?php
-                    }
+                    endwhile;
                     wp_reset_postdata();
-                    ?>
+                    else : ?>
+                        <h2><?php esc_html_e( 'Sorry, no posts matched your criteria.' ,'double'); ?></h2>
+                       <?php endif; ?>
 				</div>
 			</div> <!-- /end col-lg-12 -->
 		</div> <!-- end row -->
@@ -84,7 +94,7 @@ $daa = get_option('double_framework');
 
 	<!-- Start Testimonial
 =========================================== -->
-<?php get_template_part('content','testimonial');?>
+<?php get_template_part('template-parts/content/content','testimonial');?>
 
 
 
