@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/double.iml" filepath="$PROJECT_DIR$/.idea/double.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../plugins/double-cpt/.idea/double-cpt.iml" filepath="$PROJECT_DIR$/../../plugins/double-cpt/.idea/double-cpt.iml" />
     </modules>
   </component>
 </project>

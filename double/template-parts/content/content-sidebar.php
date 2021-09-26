@@ -7,7 +7,7 @@
  */
 ?>
 
-<article class="post">
+<article class="post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="post-image">
         <img class="img-fluid w-100" src="<?php the_post_thumbnail_url();?>" alt="post-image">
     </div>

@@ -56,7 +56,11 @@ End Fixed Navigation
             <?php endif; ?>
 
         </div>
-        <?php the_posts_pagination();?>
+        <?php the_posts_pagination(array(
+            'mid_size' => 2,
+            'prev_text' => __( 'Prev', 'double' ),
+            'next_text' => __( 'Next', 'double' ),
+        ));?>
     </div>
 </section>
 

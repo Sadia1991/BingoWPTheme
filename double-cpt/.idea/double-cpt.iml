@@ -16,6 +16,5 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="double-cpt" />
   </component>
 </module>

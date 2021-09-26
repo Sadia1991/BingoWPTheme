@@ -56,6 +56,7 @@ if( post_password_required() ){
         <?php
     endif;
     ?>
-
+<?php paginate_comments_links( array('prev_text' => '&laquo; PREV', 'next_text' => 'NEXT &raquo;') ); ?>
     <?php comment_form(); ?>
+
 

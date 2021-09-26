@@ -28,6 +28,8 @@ if (! function_exists('double_setup')){
 
         load_theme_textdomain( 'double', get_template_directory_uri() . '/languages' );
 
+        add_theme_support( 'automatic-feed-links' );
+
 
     /*
      * Add support for core custom logo.
@@ -140,6 +142,7 @@ require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 require_once get_template_directory() . '/inc/double-activation.php';
 require_once get_template_directory() . '/inc/double-demo-content.php';
 
+
 function double_widget_init(){
 
     register_sidebar(
@@ -211,141 +214,7 @@ function double_widget_init(){
 add_action( 'widgets_init', 'double_widget_init' );
 
 
-function slider_custom_posts(){
 
-    //slide custom post
-
-    register_post_type( 'slides',
-        // CPT Options
-        array(
-            'labels' => array(
-                'name' => __( 'Slider' ),
-                'singular_name' => __( 'Slider' ),
-            ),
-            'public' => true,
-            'supports' => array('title','editor','thumbnail','custom-fields'),
-
-        )
-    );
-
-    //offer custom post
-    register_post_type( 'services',
-        // CPT Options
-        array(
-            'labels' => array(
-                'name' => __( 'Service' ),
-                'singular_name' => __( 'Service' ),
-            ),
-            'public' => true,
-            'supports' => array('title','editor','custom-fields'),
-
-        )
-    );
-
-    //offer custom post
-    register_post_type( 'offers',
-        // CPT Options
-        array(
-            'labels' => array(
-                'name' => __( 'Offers' ),
-                'singular_name' => __( 'Offers' ),
-            ),
-            'public' => true,
-            'supports' => array('title','editor','custom-fields'),
-
-        )
-    );
-
-
-    //testimonial custom post
-    register_post_type( 'testimonial',
-        // CPT Options
-        array(
-            'labels' => array(
-                'name' => __( 'Testimonial' ),
-                'singular_name' => __( 'Testimonial' ),
-            ),
-            'public' => true,
-            'supports' => array('thumbnail','custom-fields','page-attributes'),
-
-        )
-    );
-
-    //team custom post
-
-    register_post_type( 'team',
-        // CPT Options
-        array(
-            'labels' => array(
-                'name' => __( 'Team' ),
-                'singular_name' => __( 'Team' ),
-            ),
-            'public' => true,
-            'supports' => array('title','editor','thumbnail','custom-fields','page-attributes'),
-
-        )
-    );
-
-    //gallery custom post
-
-    register_post_type( 'gallery',
-        // CPT Options
-        array(
-            'labels' => array(
-                'name' => __( 'Gallery' ),
-                'singular_name' => __( 'Gallery' ),
-            ),
-            'public' => true,
-            'supports' => array('title','thumbnail','custom-fields','page-attributes'),
-
-        )
-    );
-
-    //logo custom post
-
-    register_post_type( 'logo',
-        // CPT Options
-        array(
-            'labels' => array(
-                'name' => __( 'Logo' ),
-                'singular_name' => __( 'Logo' ),
-            ),
-            'public' => true,
-            'supports' => array('title','thumbnail','custom-fields','page-attributes'),
-
-        )
-    );
-
-
-    //portfolio custom post
-
-    register_post_type( 'portfolio',
-        // CPT Options
-        array(
-            'labels' => array(
-                'name' => __( 'Portfolio' ),
-                'singular_name' => __( 'Portfolio' ),
-            ),
-            'public' => true,
-            'supports' => array('title','editor','thumbnail','custom-fields','page-attributes'),
-
-        )
-    );
-
-    //portfolio taxonomy
-
-    register_taxonomy('portfolio-cat','portfolio', array(
-            'labels' => array(
-                    'name' => __('Categories'),
-                    'singular_name' => __('Category')
-            ),
-            'hierarchical' => true,
-            'show_admin_column' => true
-    ));
-
-}
-
-add_action('init','slider_custom_posts');
 
 
 
