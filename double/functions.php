@@ -30,6 +30,10 @@ if (! function_exists('double_setup')){
 
         add_theme_support( 'automatic-feed-links' );
 
+        add_theme_support( "wp-block-styles" );
+
+        add_theme_support( "responsive-embeds" );
+
 
     /*
      * Add support for core custom logo.
@@ -63,6 +67,13 @@ if (! function_exists('double_setup')){
             )
         );
 
+        $args = array();
+
+        add_theme_support( "html5", $args );
+        add_theme_support( "custom-logo", $args );
+        add_theme_support( "custom-header", $args );
+        add_theme_support( "custom-background", $args );
+        add_theme_support( "align-wide" );
 
         // This theme uses wp_nav_menu() in two locations.
         register_nav_menus(
@@ -246,6 +257,46 @@ function double_comment_field($field){
 }
 
 add_filter( 'comment_form_fields', 'double_comment_field' );
+
+function double_queue_js(){
+    if ( (!is_admin()) && is_singular() && comments_open() && get_option('thread_comments') )
+        wp_enqueue_script( 'comment-reply' );
+}
+add_action('wp_print_scripts', 'double_queue_js');
+
+
+function double_theme_add_editor_styles() {
+    add_editor_style( 'custom-editor-style.css' );
+}
+add_action( 'admin_init', 'double_theme_add_editor_styles' );
+
+if ( function_exists( 'register_block_style' ) ) {
+    register_block_style(
+        'core/quote',
+        array(
+            'name'         => 'blue-quote',
+            'label'        => __( 'Blue Quote', 'double' ),
+            'is_default'   => true,
+            'inline_style' => '.wp-block-quote.is-style-blue-quote { color: blue; }',
+        )
+    );
+}
+
+function double_register_my_patterns() {
+    register_block_pattern(
+        'wpdocs-my-plugin/my-awesome-pattern',
+        array(
+            'title'       => __( 'Two buttons', 'double' ),
+            'description' => _x( 'Two horizontal buttons, the left button is filled in, and the right button is outlined.', 'Block pattern description', 'double' ),
+            'content'     => "<!-- wp:buttons {\"align\":\"center\"} -->\n<div class=\"wp-block-buttons aligncenter\"><!-- wp:button {\"backgroundColor\":\"very-dark-gray\",\"borderRadius\":0} -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link has-background has-very-dark-gray-background-color no-border-radius\">" . esc_html__( 'Button One', 'double' ) . "</a></div>\n<!-- /wp:button -->\n\n<!-- wp:button {\"textColor\":\"very-dark-gray\",\"borderRadius\":0,\"className\":\"is-style-outline\"} -->\n<div class=\"wp-block-button is-style-outline\"><a class=\"wp-block-button__link has-text-color has-very-dark-gray-color no-border-radius\">" . esc_html__( 'Button Two', 'double' ) . "</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->",
+        )
+    );
+}
+
+add_action( 'init', 'double_register_my_patterns' );
+
+
+
 
 
 

@@ -29,6 +29,20 @@
         <?php the_content();?>
 
 
+        <?php
+        $wpbtags =  get_tags();
+        $html = '<span class="tagbox">';
+        foreach ($wpbtags as $tag) {
+            $tag_link = get_tag_link( $tag->term_id );
+            $html .= "<a class='taglink' href='{$tag_link}' title='{$tag->name}'>";
+            $html .= "{$tag->name}"."</a>";
+            $html .= '<span class="tagcount">'. $tag->count ."  ";
+            $html .= '</span>';
+        }
+        $html .= '</span>';
+        echo $html;
+
+        ?>
 
         <!-- Comment Form -->
         <?php comments_template(); ?>

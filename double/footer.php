@@ -39,7 +39,14 @@
               <?php
 
                 printf( __( 'Proudly powered by %s.', 'double' ), 'SoftinnovationBD' ); ?>
-          </a></h6>
+          </a>
+          <?php the_taxonomies( array(
+              'before' => '<div class="tax-link-wrap">',
+              'template' => '<span class="taxonomy-label">%s:</span> <span class="taxonomy-term-list">%l.</span>',
+              'term_template' => '<a href="%1$s" rel="tag">%2$s</a>',
+              'sep' => '<br />',
+              'after' => '</div>',
+          ) ); ?></h6>
   </div>
 </footer> <!-- end footer -->
 </body>

@@ -9,9 +9,9 @@ if( class_exists( 'CSF' ) ) {
     //
     // Create options
     CSF::createOptions( $prefix, array(
-        'menu_title' => 'Double Options',
-        'menu_slug'  => 'double-options',
-        'framework_title' => 'Double Options',
+        'menu_title' => 'Theme Options',
+        'menu_slug'  => 'theme-options',
+        'framework_title' => 'Theme Options',
         'menu_parent' => 'themes.php',
         'menu_type' => 'submenu'
     ) );
@@ -21,22 +21,22 @@ if( class_exists( 'CSF' ) ) {
     CSF::createSection($prefix, array(
 
         'title' => 'Logo',
-        'icon' => 'fas fa-arrow-right',
+        'icon' => 'fas fa-icons',
         'fields' => array(
             array(
                 'id' => 'logo',
                 'type' => 'media',
-                'title' => 'Upload Logo',
+                'title' => __('Upload Logo','double'),
             ),
             array(
                 'id' => 'hello',
                 'type' => 'media',
-                'title' => 'Upload Logo Transparent',
+                'title' => __('Upload Logo Transparent','double'),
             ),
             array(
                 'id' => 'favicon',
                 'type' => 'media',
-                'title' => 'Upload Favicon',
+                'title' => __('Upload Favicon','double'),
             )
         )
     ));
@@ -45,12 +45,12 @@ if( class_exists( 'CSF' ) ) {
     CSF::createSection($prefix, array(
 
         'title' => 'Header Image',
-        'icon' => 'fas fa-arrow-right',
+        'icon' => 'fas fa-image',
         'fields' => array(
             array(
                 'id' => 'head_image',
                 'type' => 'media',
-                'title' => 'Upload Logo',
+                'title' => __('Upload Header Image','double'),
             ),
 
         )
@@ -60,30 +60,31 @@ if( class_exists( 'CSF' ) ) {
     // About Options
     CSF::createSection($prefix, array(
         'id' => 'about_options',
-        'title' => 'About Section',
-        'icon' => 'fas fa-arrow-right',
+        'title' => 'Home Page Section',
+        'icon' => 'fas fa-house-damage',
     ));
 
     // About Section Title
     CSF::createSection($prefix, array(
         'parent'=> 'about_options',
-        'title' => 'About Section Title',
+        'title' => 'HomePage Offer Section Title',
+        'icon' => 'fab fa-buffer',
         'fields' => array(
             array(
                 'id' => 'about_sec_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text'
             ),
             array(
                 'id' => 'about_sec_subtitle',
-                'title' => 'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'about-image',
                 'type' => 'media',
-                'title' => 'Upload Image',
+                'title' => __('Upload Image','double'),
             )
         )
     ));
@@ -91,36 +92,37 @@ if( class_exists( 'CSF' ) ) {
     // About Section Title
     CSF::createSection($prefix, array(
 
-        'title' => 'Agency Section Title',
+        'title' => 'HomePage Learn Section Title',
+        'icon' => 'fas fa-coffee',
         'parent'=> 'about_options',
         'fields' => array(
             array(
                 'id' => 'bingo_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'bingo_sub_title',
-                'title' =>'Sub Title',
+                'title' =>__('Sub Title','double'),
                 'type' => 'text'
             ),
             array(
                 'id' => 'about_sec_des',
-                'title' => 'Description',
+                'title' => __('Description','double'),
                 'type' => 'textarea'
             ),
 
             array(
                 'id' => 'opt-upload-2',
                 'type' => 'media',
-                'title' => 'Upload Image',
+                'title' => __('Upload Image','double'),
             ),
 
             array(
                 'id'    => 'opt-link-1',
                 'type'  => 'text',
-                'title' => 'Learn More',
+                'title' => __('Learn More','double'),
             ),
         )
     ));
@@ -128,30 +130,30 @@ if( class_exists( 'CSF' ) ) {
     // About Section Title
     CSF::createSection($prefix, array(
 
-        'title' => 'Banner Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => 'CTA Section Title',
+        'icon' => 'fas fa-location-arrow',
         'fields' => array(
             array(
                 'id' => 'banner_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'banner_sub_title',
-                'title' =>'Sub Title',
+                'title' =>__('Sub Title','double'),
                 'type' => 'text'
             ),
 
             array(
                 'id' => 'opt-upload-1',
                 'type' => 'media',
-                'title' => 'Upload Image',
+                'title' => __('Upload Image','double'),
             ),
             array(
                 'id' => 'cta_btn_url',
                 'type'=> 'text',
-                'title' => 'Contact Us',
+                'title' => __('Contact Us','double'),
 
             )
         )
@@ -162,39 +164,39 @@ if( class_exists( 'CSF' ) ) {
     CSF::createSection($prefix, array(
         'id' => 'counter_options',
         'title' => 'Counter Options',
-        'icon' => 'fas fa-rocket',
+        'icon' => 'fas fa-globe',
         'fields' => array(
             array(
                 'id' => 'counter_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'counter_sub_title',
-                'title' =>'Sub Title',
+                'title' =>__('Sub Title','double'),
                 'type' => 'text'
             ),
             array(
                 'id' => 'counter_lists',
-                'title' => 'Counter Lists',
+                'title' => __('Counter Lists','double'),
                 'type' => 'group',
-                'button_title' => 'Add New Counter',
+                'button_title' => __('Add New Counter','double'),
                 'fields' => array(
                     array(
                         'id' => 'counter_title',
                         'type' => 'text',
-                        'title' => 'Counter Title'
+                        'title' => __('Counter Title','double'),
                     ),
                     array(
                         'id' => 'counter_number',
                         'type' => 'number',
-                        'title' => 'Counter Number'
+                        'title' => __('Counter Number','double'),
                     ),
                     array(
                         'id' => 'counter_icon',
                         'type' => 'icon',
-                        'title' => 'Counter Icon'
+                        'title' => __('Counter Icon','double'),
                     ),
                 )
             ),
@@ -207,18 +209,18 @@ if( class_exists( 'CSF' ) ) {
     // Create a section
     CSF::createSection($prefix, array(
 
-        'title' => 'Blog Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('Blog Section Title','double'),
+        'icon' => 'fas fa-blog',
         'fields' => array(
             array(
                 'id' => 'blog_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'blog_sub_title',
-                'title' =>'Sub Title',
+                'title' =>__('Sub Title','double'),
                 'type' => 'text'
             ),
 
@@ -228,31 +230,31 @@ if( class_exists( 'CSF' ) ) {
     // About Options
     CSF::createSection($prefix, array(
         'id' => 'about_us_options',
-        'title' => 'About Us Section',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('About Us Section','double'),
+        'icon' => 'fas fa-address-card',
     ));
 
     // Create a section
     CSF::createSection($prefix, array(
         'parent' => 'about_us_options',
-        'title' => 'About First Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('About Design Section Title','double'),
+        'icon' => 'fas fa-directions',
         'fields' => array(
             array(
                 'id' => 'about_first_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'about_first_sec_des',
-                'title' => 'Description',
+                'title' => __('Description','double'),
                 'type' => 'textarea',
             ),
             array(
                 'id' => 'opt-about-1',
                 'type' => 'media',
-                'title' => 'Upload Image',
+                'title' => __('Upload Image','double'),
             )
 
         )
@@ -262,24 +264,24 @@ if( class_exists( 'CSF' ) ) {
     // Create a section
     CSF::createSection($prefix, array(
         'parent' => 'about_us_options',
-        'title' => 'About Second Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('About Mission Section Title','double'),
+        'icon' => 'fas fa-directions',
         'fields' => array(
             array(
                 'id' => 'about_second_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'about_second_sec_des',
-                'title' => 'Description',
+                'title' => __('Description','double'),
                 'type' => 'textarea',
             ),
             array(
                 'id' => 'opt-about-3',
                 'type' => 'media',
-                'title' => 'Upload Image',
+                'title' => __('Upload Image','double'),
             )
 
         )
@@ -289,24 +291,24 @@ if( class_exists( 'CSF' ) ) {
     // Create a section
     CSF::createSection($prefix, array(
         'parent' => 'about_us_options',
-        'title' => 'About Third Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('About Vision Section Title','double'),
+        'icon' => 'fas fa-directions',
         'fields' => array(
             array(
                 'id' => 'about_third_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'about_third_sec_des',
-                'title' => 'Description',
+                'title' => __('Description','double'),
                 'type' => 'textarea',
             ),
             array(
                 'id' => 'opt-about-4',
                 'type' => 'media',
-                'title' => 'Upload Image',
+                'title' => __('Upload Image','double'),
             )
 
         )
@@ -315,18 +317,18 @@ if( class_exists( 'CSF' ) ) {
     // Create a section
     CSF::createSection($prefix, array(
 
-        'title' => 'Gallery Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('Gallery Section Title','double'),
+        'icon' => 'fab fa-envira',
         'fields' => array(
             array(
                 'id' => 'gallery_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'gallery_sub_title',
-                'title' =>'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text'
             ),
 
@@ -337,18 +339,18 @@ if( class_exists( 'CSF' ) ) {
     // Create a section
     CSF::createSection($prefix, array(
 
-        'title' => 'Team Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('Team Section Title','double'),
+        'icon' => 'fab fa-teamspeak',
         'fields' => array(
             array(
                 'id' => 'team_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'team_sub_title',
-                'title' =>'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text'
             ),
 
@@ -358,18 +360,18 @@ if( class_exists( 'CSF' ) ) {
     // Create a section
     CSF::createSection($prefix, array(
 
-        'title' => 'Service Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('Service Section Title','double'),
+        'icon' => 'fab fa-servicestack',
         'fields' => array(
             array(
                 'id' => 'service_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'service_sub_title',
-                'title' =>'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text'
             ),
 
@@ -380,35 +382,35 @@ if( class_exists( 'CSF' ) ) {
 
     CSF::createSection($prefix, array(
         'id' => 'slider_options',
-        'title' => 'Slider Options',
-        'icon' => 'fas fa-angle-double-right',
+        'title' => __('ProgressBar Options','double'),
+        'icon' => 'fas fa-sliders-h',
         'fields' => array(
             array(
                 'id' => 'slider_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'slider_sub_title',
-                'title' =>'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text'
             ),
             array(
                 'id' => 'slider_lists',
-                'title' => 'Slider Lists',
+                'title' => __('ProgressBar Lists','double'),
                 'type' => 'group',
-                'button_title' => 'Add New Slider',
+                'button_title' =>  __('Add New ProgressBar','double'),
                 'fields' => array(
                     array(
                         'id' => 'slide_title',
                         'type' => 'text',
-                        'title' => 'Slide Title'
+                        'title' => __('ProgressBar Title','double'),
                     ),
                     array(
                         'id' => 'slider_number',
                         'type' => 'slider',
-                        'title' => 'Slider Number',
+                        'title' => __('ProgressBar Number','double'),
 
                     ),
 
@@ -422,18 +424,18 @@ if( class_exists( 'CSF' ) ) {
     // Create a section
     CSF::createSection($prefix, array(
 
-        'title' => 'Skill Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('Skill Section Title','double'),
+        'icon' => 'fas fa-blender-phone',
         'fields' => array(
             array(
                 'id' => 'skill_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'skill_sub_title',
-                'title' =>'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text'
             ),
 
@@ -443,18 +445,18 @@ if( class_exists( 'CSF' ) ) {
     // Create a section
     CSF::createSection($prefix, array(
 
-        'title' => 'Portfolio Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('Portfolio Section Title','double'),
+        'icon' => 'fas fa-photo-video',
         'fields' => array(
             array(
                 'id' => 'all_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'all_sub_title',
-                'title' =>'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text'
             ),
 
@@ -462,59 +464,61 @@ if( class_exists( 'CSF' ) ) {
     ));
 
 
-    // About Options
-    CSF::createSection($prefix, array(
-        'id' => 'team_about_options',
-        'title' => 'Team About Us Section',
-        'icon' => 'fas fa-arrow-right',
-    ));
+
 
     // Create a section
     CSF::createSection($prefix, array(
-        'parent' => 'team_about_options',
-        'title' => 'About Us Section Title',
-        'icon' => 'fas fa-arrow-right',
+
+        'title' => __('Team Info Section Title','double'),
+        'icon' => 'fas fa-info-circle',
         'fields' => array(
             array(
                 'id' => 'all_about_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'all_about_sub_title',
-                'title' =>'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text'
             ),
             array(
                 'id' => 'abs_con',
                 'type' => 'media',
-                'title' => 'Upload Image',
+                'title' => __('Upload Image','double'),
             ),
             array(
                 'id' => 'about_team_sec_des',
-                'title' => 'Description',
+                'title' => __('Description','double'),
                 'type' => 'textarea'
             )
 
         )
     ));
 
+    // About Options
+    CSF::createSection($prefix, array(
+        'id' => 'contact_options',
+        'title' => __('Contact Page Section','double'),
+        'icon' => 'fas fa-id-card',
+    ));
+
     // Create a section
     CSF::createSection($prefix, array(
-
-        'title' => 'Contact Section Title',
-        'icon' => 'fas fa-arrow-right',
+        'parent' => 'contact_options',
+        'title' => __('Contact Section Title','double'),
+        'icon' => 'fas fa-file-contract',
         'fields' => array(
             array(
                 'id' => 'con_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'con_sub_title',
-                'title' =>'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text'
             ),
 
@@ -523,19 +527,19 @@ if( class_exists( 'CSF' ) ) {
 
     // Create a section
     CSF::createSection($prefix, array(
-
-        'title' => 'Contact Details',
-        'icon' => 'fas fa-arrow-right',
+        'parent' => 'contact_options',
+        'title' => __('Contact Details','double'),
+        'icon' => 'fas fa-file-signature',
         'fields' => array(
             array(
                 'id' => 'con_dec_title',
-                'title' => 'Title',
+                'title' => __('Title','double'),
                 'type' => 'text',
 
             ),
             array(
                 'id' => 'con_dec_sub_title',
-                'title' =>'Sub Title',
+                'title' => __('Sub Title','double'),
                 'type' => 'text'
             ),
 
@@ -544,25 +548,25 @@ if( class_exists( 'CSF' ) ) {
 
     // Contact Options
     CSF::createSection($prefix, array(
-        'id' => 'contact_options',
-        'title' =>'Contact Options',
-        'icon' => 'fas fa-bullhorn',
+        'parent' => 'contact_options',
+        'title' => __('Contact Options','double'),
+        'icon' => 'fas fa-id-badge',
         'fields' => array(
             array(
                 'id' => 'contact_info',
-                'title' => 'Contact Info',
+                'title' => __('Contact Info','double'),
                 'type' => 'group',
-                'button_title' => 'Add New Contact Items',
+                'button_title' => __('Add New Contact Items','double'),
                 'fields' => array(
                     array(
                         'id' => 'contact_info_icon',
                         'type' => 'icon',
-                        'title' => 'Contact Info Icon',
+                        'title' => __('Contact Info Icon','double'),
                     ),
                     array(
                         'id' => 'contact_info_des',
                         'type' => 'text',
-                        'title' => 'Contact Info Description',
+                        'title' => __('Contact Info Description','double'),
                     )
                 )
             ),
@@ -573,24 +577,24 @@ if( class_exists( 'CSF' ) ) {
 
     // Social Options
     CSF::createSection($prefix, array(
-        'title' => 'Social Icons',
-        'icon' => 'fas fa-arrow-right',
+        'title' => __('Social Icons','double'),
+        'icon' => 'fas fa-share',
         'fields' => array(
             array(
                 'id' => 'social_icons',
-                'title'=> 'Social Icons',
+                'title'=> __('Social Icons','double'),
                 'type' => 'group',
-                'button_title' =>'Add New Social Box',
+                'button_title' => __('Add New Social Box','double'),
                 'fields' => array(
                     array(
                         'id' => 'social_link',
                         'type' => 'text',
-                        'title' => 'Social Link',
+                        'title' => __('Social Link','double'),
                     ),
                     array(
                         'id' => 'social_icon',
                         'type' => 'icon',
-                        'title' => 'Social Icon',
+                        'title' => __('Social Icon','double'),
                     )
                 )
             )

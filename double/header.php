@@ -39,7 +39,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <!-- logo -->
 
-        <a class="navbar-brand logo" href="<?php echo esc_url(site_url());?>">
+        <a class="navbar-brand logo" href="<?php echo esc_url(home_url());?>">
             <?php
              if($options['logo']):?>
             <img class="logo-default" src="<?php echo esc_url($logo['url']);?>" alt="logo"/>

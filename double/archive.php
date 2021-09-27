@@ -13,7 +13,7 @@ End Fixed Navigation
                 <div class="col-md-12">
                     <h2><?php the_archive_title();?></h2>
                     <ol class="breadcrumb header-bradcrumb">
-                        <li><a href="<?php echo site_url();?>"><h4>Home</h4></a></li>
+                        <li><a href="<?php echo esc_url(home_url());?>"><h4>Home</h4></a></li>
                         <li class="active"><h4><?php the_archive_title();?></h4></li>
                     </ol>
                 </div>
